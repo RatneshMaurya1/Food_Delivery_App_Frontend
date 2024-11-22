@@ -1,0 +1,12 @@
+.container{
+    height: auto;
+    width: 100%;
+    padding: 0 70px;
+    padding-bottom: 50px;
+}
+.headerImages{
+    height: 610px;
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 41px;
+}
