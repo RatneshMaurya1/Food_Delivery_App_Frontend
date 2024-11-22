@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./home.module.css";
+import styles from "./Home.module.css";
 import Nav from "../../components/Nav/Nav";
 import NavBar from "../../components/Navbar/NavBar";
 
