@@ -1,12 +1,221 @@
-.container{
-    height: auto;
-    width: 100%;
-    padding: 0 70px;
-    padding-bottom: 50px;
+.container {
+  height: auto;
+  width: 100%;
+  padding: 0 70px;
+  padding-bottom: 50px;
 }
-.headerImages{
-    height: 610px;
-    width: 100%;
-    border: 1px solid black;
-    margin-top: 41px;
+.headerImages {
+  height: 610px;
+  width: 100%;
+  border: 1px solid black;
+  margin-top: 41px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 1px solid #00000033;
+  background: #fbfbfb;
+  border-radius: 12px;
 }
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+.text > p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 66px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.text > h1 {
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 66px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.text > h3 {
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 66px;
+  text-align: left;
+  color: #fc8a06;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.text > h4 {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 66px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.headerInput {
+  display: flex;
+  position: relative;
+  height: auto;
+  width: 80%;
+}
+.headerInput > input {
+  height: 57px;
+  width: 75%;
+  border: 1px solid #00000066;
+  border-radius: 120px;
+  flex-shrink: 0;
+  padding-left: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 66px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  outline: none;
+}
+.headerInput > button {
+  position: absolute;
+  height: 57px;
+  width: 188px;
+  right: 0;
+  background-color: #fc8a06;
+  border-radius: 120px;
+  border: none;
+}
+.headerImage1 {
+  position: absolute;
+  height: 537px;
+  width: 700px;
+  bottom: 0;
+  left: 25%;
+  z-index: 6;
+}
+.headerImage1 > img {
+  height: 100%;
+  width: 100%;
+}
+.headerImage2 {
+  position: absolute;
+  height: 455px;
+  width: 340px;
+  bottom: 0;
+  left: 58%;
+  z-index: 5;
+}
+.headerImage2 > img {
+  height: 100%;
+  width: 100%;
+}
+.headerImage3 {
+  position: absolute;
+  height: 565px;
+  width: 550px;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+}
+.headerImage3 > img {
+  height: 100%;
+  width: 100%;
+}
+.headerImage4 {
+  position: absolute;
+  height: 183px;
+  width: 390px;
+  z-index: 7;
+  right: 22px;
+  top: 388px;
+}
+.headerImage4 > img {
+  height: 100%;
+  width: 100%;
+}
+.headerImage5 {
+  position: absolute;
+  height: 183px;
+  width: 390px;
+  z-index: 7;
+  right: 50px;
+  top: 50px;
+}
+.firstImage {
+  position: relative;
+}
+.firstImage > img {
+  height: 100%;
+  width: 100%;
+}
+.firstImage > h4 {
+  position: absolute;
+  top: 113px;
+  left: 34px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.firstImage > h5 {
+  position: absolute;
+  top: 134px;
+  left: 34px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.tracking{
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    top: 130px;
+    left: 223px;
+    z-index: 10;
+  }
+.headerImage6 {
+    position: absolute;
+    height: 183px;
+    width: 390px;
+    z-index: 7;
+    right: -10px;
+    top: 196px;
+  }
+  .firstImage {
+    position: relative;
+  }
+  .firstImage1 > img {
+    height: 100%;
+    width: 100%;
+  }
+  .firstImage1 > h4 {
+    position: absolute;
+    top: 113px;
+    left: 34px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+  .firstImage1 > h5 {
+    position: absolute;
+    top: 134px;
+    left: 34px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+  .tick{
+    position: absolute;
+    height: 17px;
+    width: 17px;
+    top: 113px;
+    left: 174px;
+  }
