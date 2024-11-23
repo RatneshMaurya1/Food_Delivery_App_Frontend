@@ -1,6 +1,7 @@
 nav {
   height: 70px;
   width: 100%;
+  max-width: 1528px;
   display: flex;
   justify-content: space-between;
   align-items: center;
