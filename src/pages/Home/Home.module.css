@@ -89,7 +89,7 @@
   height: 537px;
   width: 805px;
   bottom: 0;
-  left: 300px;
+  right: 300px;
   z-index: 6;
 }
 .headerImage1 > img {
@@ -101,7 +101,7 @@
   height: 455px;
   width: 337px;
   bottom: 0;
-  left: 805px;
+  right: 255px;
   z-index: 5;
 }
 .headerImage2 > img {
@@ -111,7 +111,7 @@
 .headerImage3 {
   position: absolute;
   height: 565px;
-  width: 550px;
+  width: 565px;
   right: 0;
   bottom: 0;
   z-index: 4;
