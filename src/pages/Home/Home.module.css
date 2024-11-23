@@ -87,9 +87,9 @@
 .headerImage1 {
   position: absolute;
   height: 537px;
-  width: 700px;
+  width: 805px;
   bottom: 0;
-  left: 25%;
+  left: 300px;
   z-index: 6;
 }
 .headerImage1 > img {
@@ -99,9 +99,9 @@
 .headerImage2 {
   position: absolute;
   height: 455px;
-  width: 340px;
+  width: 337px;
   bottom: 0;
-  left: 58%;
+  left: 805px;
   z-index: 5;
 }
 .headerImage2 > img {
