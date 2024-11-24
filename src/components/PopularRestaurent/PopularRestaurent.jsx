@@ -1,9 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import styles from "./popularRestaurent.module.css"
 import { getImage } from '../../services';
+import { useNavigate } from 'react-router-dom';
 
 const PopularRestaurent = () => {
     const [imageUrl, setImageUrl] = useState([]);
+    const navigate = useNavigate()
 
     useEffect(() => {
       try {
@@ -17,6 +19,10 @@ const PopularRestaurent = () => {
         console.error(error);
       }
     }, []);
+
+    const handleProduct = () => {
+      navigate("/product")
+    }
   return (
     <>
      <div className={styles.popularRestaaurent}>
@@ -25,7 +31,7 @@ const PopularRestaurent = () => {
           </div>
 
           <div className={styles.popularRestaaurentImage}>
-            <div className={styles.popularRestaaurentDiv1}>
+            <div className={styles.popularRestaaurentDiv1} onClick={handleProduct}>
             <div className={styles.popularRestaaurentImage1}>
               {imageUrl.map((img,i) => (
                 <img key={i} src={img.data.popularRestaurent1} alt="image" />
@@ -36,7 +42,7 @@ const PopularRestaurent = () => {
             </div>
             </div>
 
-            <div className={styles.popularRestaaurentDiv1}>
+            <div className={styles.popularRestaaurentDiv1} onClick={handleProduct}>
             <div className={styles.popularRestaaurentImage1}>
               {imageUrl.map((img,i) => (
                 <img key={i} src={img.data.popularRestaurent2} alt="image" />
@@ -46,7 +52,7 @@ const PopularRestaurent = () => {
             <h3>Papa Johns</h3>
             </div>
             </div>
-            <div className={styles.popularRestaaurentDiv1}>
+            <div className={styles.popularRestaaurentDiv1} onClick={handleProduct}>
             <div className={styles.popularRestaaurentImage1}>
               {imageUrl.map((img,i) => (
                 <img key={i} src={img.data.popularRestaurent3} alt="image" />
@@ -56,7 +62,7 @@ const PopularRestaurent = () => {
             <h3>KFC West London</h3>
             </div>
             </div>
-            <div className={styles.popularRestaaurentDiv1}>
+            <div className={styles.popularRestaaurentDiv1} onClick={handleProduct}>
             <div className={styles.popularRestaaurentImage1}>
               {imageUrl.map((img,i) => (
                 <img key={i} src={img.data.popularRestaurent4} alt="image" />
@@ -66,7 +72,7 @@ const PopularRestaurent = () => {
             <h3>Texas Chicken</h3>
             </div>
             </div>
-            <div className={styles.popularRestaaurentDiv1}>
+            <div className={styles.popularRestaaurentDiv1} onClick={handleProduct}>
             <div className={styles.popularRestaaurentImage1}>
               {imageUrl.map((img,i) => (
                 <img key={i} src={img.data.popularRestaurent5} alt="image" />
@@ -76,7 +82,7 @@ const PopularRestaurent = () => {
             <h3>Burger King</h3>
             </div>
             </div>
-            <div className={styles.popularRestaaurentDiv1}>
+            <div className={styles.popularRestaaurentDiv1} onClick={handleProduct}>
             <div className={styles.popularRestaaurentImage1}>
               {imageUrl.map((img,i) => (
                 <img key={i} src={img.data.popularRestaurent6} alt="image" />
