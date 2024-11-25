@@ -1,6 +1,5 @@
 import styles from "./login.module.css";
-import LoginFooter from "./LoginFooter/LoginFooter";
-
+import Footer from"../../components/Footer/Footer";
 
 import LoginHeader from "./LoginHeader/LoginHeader";
 
@@ -9,7 +8,7 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <LoginHeader/>
-      <LoginFooter/>
+      <Footer/>
     </div>
   );
 };

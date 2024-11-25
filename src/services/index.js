@@ -57,3 +57,21 @@ export const getImage = async () => {
     throw new Error(error.message || "An unexpected error occurred");
   }
 };
+export const getFoodItem = async () => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/card`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
