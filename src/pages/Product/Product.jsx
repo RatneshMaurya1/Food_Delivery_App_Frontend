@@ -6,7 +6,7 @@ import orderCompleteImg from "../../assets/OrderCompleted.png";
 import orderInImg from "../../assets/Motocross.png";
 import searchImg from "../../assets/SearchMore.png";
 import clock from "../../assets/Clock.png";
-import delInfoImg from "../../assets/TracKing3.png"
+import delInfoImg from "../../assets/Tracking3.png"
 import IdImg from  "../../assets/idVerified.png"
 import Clock2Img from "../../assets/Clock2.png"
 import { getImage } from "../../services";
