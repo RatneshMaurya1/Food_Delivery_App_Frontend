@@ -4,7 +4,7 @@ import shareLink from "../../assets/share-2.png";
 import basketImg from "../../assets/Basket.png";
 import deleteBtn from "../../assets/Remove.png";
 import downBtn from "../../assets/DownButton.png";
-import NextButton from "../../assets/NextBUtton.png";
+import NextButton from "../../assets/NextButton.png";
 import DeliveryScooter from "../../assets/DeliveryScooter.png";
 import arrowBtn from "../../assets/ArrowButton.png"
 import newStore from "../../assets/NewStore.png";
