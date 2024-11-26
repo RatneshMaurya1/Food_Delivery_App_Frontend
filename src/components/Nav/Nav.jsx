@@ -3,8 +3,26 @@ import orderImage from "../../assets/star.png";
 import locationImage from "../../assets/Location.png";
 import cartImage from "../../assets/cartImage.png";
 import styles from "./nav.module.css";
+import { useAuth } from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
+  const {handleCart} = useAuth()
+  const navigate = useNavigate()
+
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 950,
+      behavior: 'smooth',
+    });
+  };
+  
+  const handleOpenCart = () => {
+    handleCart()
+    navigate("/product")
+    handleScrollToTop()
+  }
+
   return (
     <>
       <nav>
@@ -27,7 +45,7 @@ const Nav = () => {
           </div>
 
           <div className={styles.cart}>
-            <img src={cartImage} alt="locationImage" />
+            <img src={cartImage} onClick={handleOpenCart} alt="locationImage" />
           </div>
         </div>
       </nav>

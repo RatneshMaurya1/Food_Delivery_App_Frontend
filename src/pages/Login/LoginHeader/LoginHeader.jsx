@@ -4,10 +4,12 @@ import headerLogo from "../../../assets/LOGO.png";
 import { getImage, userSignIn } from "../../../services/index";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useAuth } from "../../../components/Context/AuthContext";
 
 const LoginHeader = () => {
     const [image,setImage] = useState([])
     const [loading,setLoading] = useState(false)
+    const {logIn} = useAuth()
     const [formData,setFormData] = useState({
       email:"",
       password:""
@@ -40,6 +42,9 @@ const LoginHeader = () => {
             email: "",
             password: "",
           });
+          localStorage.setItem("token",response.token)
+          localStorage.setItem("userId",response.user._id)
+          logIn(response.user.name)
           navigate("/home")
         } else {
           toast.error(response.message);

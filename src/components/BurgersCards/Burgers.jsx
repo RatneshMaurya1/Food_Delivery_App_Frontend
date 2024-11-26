@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./burgers.module.css";
-import { getFoodItem } from "../../services";
+import { createCart, getFoodItem } from "../../services";
 import toast from "react-hot-toast";
 
 const Burgers = () => {
   const [cards, setCards] = useState([]);
+  const [loading,setLoading] = useState(false)
 
   useEffect(() => {
     const getCards = async () => {
@@ -17,6 +18,29 @@ const Burgers = () => {
     };
     getCards();
   }, []);
+
+  const handleCards = async (card) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Please log in to add items to your cart.");
+      return;
+    }
+    if (loading[card._id]) return;
+
+    setLoading((prev) => ({ ...prev, [card._id]: true }));
+
+    try {
+      const response = await createCart({ cardId: card._id });
+      if (response.message === "Item added to cart") {
+        toast.success(response.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading((prev) => ({ ...prev, [card._id]: false }));
+    }
+  };
+
 
   const BurgerCards = cards.filter((card) => card.name === "Burgers");
   const FriesCards = cards.filter((card) => card.name === "Fries");
@@ -42,7 +66,7 @@ const Burgers = () => {
                     <img src={burgerCard.addImageBg} alt="image" />
                   </div>
                   <div className={styles.addImg}>
-                    <img src={burgerCard.addImage} alt="image" />
+                    <img src={burgerCard.addImage} onClick={() => handleCards(burgerCard)} alt="image" />
                   </div>
                 </div>
               </div>
@@ -74,7 +98,7 @@ const Burgers = () => {
                     <img src={friesCard.addImageBg} alt="image" />
                   </div>
                   <div className={styles.addImg}>
-                    <img src={friesCard.addImage} alt="image" />
+                    <img src={friesCard.addImage} onClick={() => handleCards(friesCard)} alt="image" />
                   </div>
                 </div>
               </div>
@@ -106,7 +130,7 @@ const Burgers = () => {
                     <img src={coldDrinkCard.addImageBg} alt="image" />
                   </div>
                   <div className={styles.addImg}>
-                    <img src={coldDrinkCard.addImage} alt="image" />
+                    <img src={coldDrinkCard.addImage} onClick={() => handleCards(coldDrinkCard)} alt="image" />
                   </div>
                 </div>
               </div>

@@ -75,3 +75,83 @@ export const getFoodItem = async () => {
     throw new Error(error.message || "An unexpected error occurred");
   }
 };
+export const getUserReview = async () => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/review`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const createCart = async (data) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/cart`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const getCartItem = async () => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/cart`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${localStorage.getItem("token")}`,
+      },
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const DeleteCartItemById = async (id) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/job/${id}`, {
+      method:"DELETE",
+      headers:{
+        'Content-Type': 'application/json',
+         'Authorization': `${localStorage.getItem("token")}`
+      },
+      credentials:"include"
+    })
+    if (response.ok) {
+      return await response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || 'Something went wrong');
+    }
+  } catch (error) {
+    throw new Error(error.message || 'An unexpected error occurred');
+  }
+}

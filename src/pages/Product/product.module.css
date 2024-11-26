@@ -281,7 +281,6 @@
   width: 100%;
   margin-top: 20px;
   padding: 0 70px;
-  padding-bottom: 50px;
 }
 .information {
   height: 659px;
@@ -431,4 +430,12 @@
 }
 .mapComponent{
   margin-top: 100px;
+}
+.reviewWrapper{
+  margin-top: 120px;
+}
+.similarRestaurentWrapper{
+  margin-top: 100px;
+  padding: 0 70px;
+  padding-bottom: 70px;
 }

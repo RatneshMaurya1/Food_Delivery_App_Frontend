@@ -5,12 +5,14 @@ import Signup from './pages/Signup/Signup'
 import { Toaster } from 'react-hot-toast'
 import Home from './pages/Home/Home'
 import Product from './pages/Product/Product'
+import { AuthProvider } from './components/Context/AuthContext'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <AuthProvider>
     <BrowserRouter future={{v7_startTransition:true,v7_relativeSplatPath:true}}>
     <Routes>
       <Route path='/' element={<Login/>} />
@@ -20,6 +22,7 @@ function App() {
     </Routes>
     </BrowserRouter>
     <Toaster/>
+    </AuthProvider>
     </>
   )
 }

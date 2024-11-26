@@ -90,6 +90,7 @@ nav {
   height: 70px;
   width: 378px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .cart > img{
     height: 100%;
