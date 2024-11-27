@@ -6,6 +6,8 @@ import { Toaster } from 'react-hot-toast'
 import Home from './pages/Home/Home'
 import Product from './pages/Product/Product'
 import { AuthProvider } from './components/Context/AuthContext'
+import Checkout from './pages/Checkout/Checkout'
+import Payment from "./pages/Payment/Payment"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +21,8 @@ function App() {
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/home' element={<Home/>}/>
       <Route path='/product' element={<Product/>}/>
+      <Route path='/checkout/:id' element={<Checkout/>} />
+      <Route path='/payment/:id' element={<Payment/>} />
     </Routes>
     </BrowserRouter>
     <Toaster/>

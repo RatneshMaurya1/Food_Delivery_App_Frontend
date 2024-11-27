@@ -20,6 +20,7 @@ import { useAuth } from "../../components/Context/AuthContext";
 
 const Product = () => {
   const [imageUrl, setImageUrl] = useState([]);
+  const [cartUpdated, setCartUpdated] = useState(false);
   const { showCart } = useAuth();
 
   useEffect(() => {
@@ -34,6 +35,11 @@ const Product = () => {
       console.error(error);
     }
   }, []);
+
+  const handleCartUpdate = () => {
+    setCartUpdated((prev) => !prev);
+  };
+  
   return (
     <>
       <div className={styles.container}>
@@ -114,9 +120,9 @@ const Product = () => {
               ))}
             </div>
           </div>
-          <Burgers />
+          <Burgers cartUpdated={cartUpdated} onCartUpdate={handleCartUpdate}/>
         </div>
-        {showCart && <Cart />}
+        {showCart && <Cart cartUpdated={cartUpdated} onCartUpdate={handleCartUpdate}/>}
       </div>
       <div className={styles.informationWrapper}>
         <div className={styles.information}>

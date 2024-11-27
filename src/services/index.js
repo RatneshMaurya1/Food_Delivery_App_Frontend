@@ -100,7 +100,7 @@ export const createCart = async (data) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `${localStorage.getItem("token")}`,
+        Authorization: `${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(data),
     });
@@ -121,7 +121,7 @@ export const getCartItem = async () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `${localStorage.getItem("token")}`,
+        Authorization: `${localStorage.getItem("token")}`,
       },
     });
     if (response.ok) {
@@ -135,23 +135,62 @@ export const getCartItem = async () => {
   }
 };
 
-export const DeleteCartItemById = async (id) => {
+export const DeleteCartItemById = async (cardId) => {
   try {
-    const response = await fetch(`${BACKEND_URL}/api/job/${id}`, {
-      method:"DELETE",
-      headers:{
-        'Content-Type': 'application/json',
-         'Authorization': `${localStorage.getItem("token")}`
+    const response = await fetch(`${BACKEND_URL}/api/cart/${cardId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
       },
-      credentials:"include"
-    })
+    });
     if (response.ok) {
       return await response.json();
     } else {
       const errorResponse = await response.json();
-      throw new Error(errorResponse.message || 'Something went wrong');
+      throw new Error(errorResponse.message || "Something went wrong");
     }
   } catch (error) {
-    throw new Error(error.message || 'An unexpected error occurred');
+    throw new Error(error.message || "An unexpected error occurred");
   }
-}
+};
+
+export const getCheckoutItem = async (cartId) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/cart/${cartId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const getShareLink = async () => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/cart/share`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};

@@ -8,12 +8,18 @@ import NextButton from "../../assets/NextButton.png";
 import DeliveryScooter from "../../assets/DeliveryScooter.png";
 import arrowBtn from "../../assets/ArrowButton.png";
 import newStore from "../../assets/NewStore.png";
-import { getCartItem } from "../../services";
+import ErrorImg from "../../assets/Error.png";
+import { DeleteCartItemById, getCartItem, getShareLink } from "../../services";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
-const Cart = () => {
+const Cart = ({ cartUpdated }) => {
   const [cartItem, setCartItem] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [cartId, setCartId] = useState("");
+  const [shareCartLoading, setShareCartLoading] = useState(false);
+  const [loading, setLoading] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -25,12 +31,53 @@ const Cart = () => {
         const response = await getCartItem();
         setCartItem(response.cart);
         setTotalPrice(response.totalPrice);
+        setCartId(response.cartId);
       } catch (error) {
         toast.error(error.message);
       }
     };
     getCarts();
-  }, []);
+  }, [loading, cartUpdated]);
+
+  const handleDeleteCart = async (card) => {
+    const itemId = card.cardId._id;
+
+    if (loading[itemId]) return;
+    setLoading((prev) => ({ ...prev, [itemId]: true }));
+    try {
+      const response = await DeleteCartItemById(itemId);
+      if (response.message === "Item updated in the cart") {
+        toast.success(response.message);
+
+        const updatedCart = await getCartItem();
+        setCartItem(updatedCart.cart);
+        setTotalPrice(updatedCart.totalPrice);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading((prev) => ({ ...prev, [itemId]: false }));
+    }
+  };
+
+  const handleShareLink = async () => {
+    setShareCartLoading(true);
+    try {
+      const response = await getShareLink();
+      navigator.clipboard
+        .writeText(response.shareableLink)
+        .then(() => {
+          toast.success("Link copied to clipboard!");
+        })
+        .catch((err) => {
+          toast.error("Failed to copy: ", err);
+        });
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setShareCartLoading(false);
+    }
+  };
 
   return (
     <>
@@ -38,7 +85,9 @@ const Cart = () => {
         <div className={styles.shareCart}>
           <img src={shareLink} alt="image" />
           <p>Share this cart with your friends</p>
-          <button>Copy Link</button>
+          <button onClick={handleShareLink} disabled={shareCartLoading}>
+            {shareCartLoading ? "Loading..." : "Copy Link"}
+          </button>
         </div>
 
         <div className={styles.myCart}>
@@ -55,11 +104,15 @@ const Cart = () => {
                     <p>{item.quantity}x</p>
                   </div>
                   <div className={styles.itemName}>
-                    <p>{item.cardId.price}</p>
+                    <p>{item.price}</p>
                     <h3>{item.cardId.title}</h3>
                   </div>
                   <div className={styles.deleteItem}>
-                    <img src={deleteBtn} alt="image" />
+                    <img
+                      src={deleteBtn}
+                      onClick={() => handleDeleteCart(item)}
+                      alt="image"
+                    />
                   </div>
                 </div>
               ))}
@@ -114,10 +167,26 @@ const Cart = () => {
                 <p>Starts at 16:50</p>
               </div>
             </div>
-            <div className={styles.checkoutBtn}>
-              <img src={arrowBtn} alt="image" />
-              <p>Checkout!</p>
-            </div>
+            {cartItem.length === 0 ? (
+              <div className={styles.checkoutBtn1}>
+                <img src={arrowBtn} alt="image" />
+                <p>Checkout!</p>
+                <div className={styles.errorImage}>
+                  <img src={ErrorImg} alt="image" />
+                  <div className={styles.errorMessage}>
+                    <p>
+                      Minimum delivery is ₹20, You must Spend{" "}
+                      <span>₹20 more</span> for the checkout!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.checkoutBtn}>
+                <img src={arrowBtn} alt="image" />
+                <p onClick={() => navigate(`/checkout/${cartId}`)}>Checkout!</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

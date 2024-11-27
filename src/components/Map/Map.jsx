@@ -24,7 +24,7 @@ const MapComponent = () => {
                   <img src="${prevIcon}"/>
                </div>`,
         iconSize: [80, 80],
-        iconAnchor: [25, 50],
+        iconAnchor: [-300, 100],
       });
 
       const marker = L.marker([28.7041, 77.1025], { icon: customIcon }).addTo(
