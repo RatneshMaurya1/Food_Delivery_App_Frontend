@@ -135,6 +135,9 @@
   justify-content: space-between;
   padding: 10px;
 }
+.input > img{
+  cursor: pointer;
+}
 .allInputItem {
   display: flex;
   align-items: center;
@@ -153,6 +156,9 @@
 .mapPin > img {
   height: 20px;
   word-wrap: 20px;
+}
+.delivery{
+  cursor: pointer;
 }
 .delivery > h3 {
   font-size: 14px;

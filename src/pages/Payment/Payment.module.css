@@ -44,7 +44,7 @@
   width: 65%;
 }
 .getItem {
-  border: 1px solid #03081f;
+  /* border: 1px solid #03081f; */
   padding: 10px;
   border-radius: 12px;
 }
@@ -55,7 +55,7 @@
   align-items: center;
   justify-content: space-between;
   border: 1px solid black;
-  border: 1px solid #FFE8CE;
+  border: 1px solid #ffe8ce;
   border-radius: 56px;
   padding: 15px;
 }
@@ -134,7 +134,7 @@
   height: auto;
   width: 35%;
 }
-.allAmount{
+.allAmount {
   border: 1px solid #000000;
   padding: 15px;
   border-radius: 12px;
@@ -206,18 +206,150 @@
   margin-top: 30px;
   cursor: pointer;
 }
-.wallet{
-    height: 42px;
-    width: 42px;
-    border-radius: 50%;
-    border: 1px solid #2D3748;
-    box-shadow: 0px 8px 20px 0px #56585C1F;
-    background: #FFE8CE;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.wallet {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  border: 1px solid #2d3748;
+  box-shadow: 0px 8px 20px 0px #56585c1f;
+  background: #ffe8ce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.wallet > img{
-    height: 19px;
-    width: 19px;
+.wallet > img {
+  height: 19px;
+  width: 19px;
+}
+.paymentCards {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  border: 1px solid #ffe8ce;
+  border-radius: 56px;
+  padding: 15px;
+  margin-top: 20px;
+}
+.paymentCards > p {
+  color: #028643;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 25px;
+}
+.paymentCardsWrapper {
+  display: flex;
+  gap: 15px;
+}
+.paymentCardsWrapper > img {
+  height: 48px;
+  width: 48px;
+}
+.cardTitle {
+  display: flex;
+  flex-direction: column;
+}
+.cardTitle > h3 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  text-align: center;
+}
+
+.mastercard {
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  border: 1px solid #2d3748;
+  box-shadow: 0px 8px 20px 0px #56585c1f;
+  background: #ffe8ce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mastercardwallet > img {
+  height: 10px;
+  width: 10px;
+}
+
+.addBtn > button {
+  height: 20px;
+  width: 20px;
+  background: none;
+  border: none;
+  font-size: 30px;
+}
+.addBtnTitle > h3 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.4px;
+  text-align: center;
+}
+.addCards{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  border: 1px solid #ffe8ce;
+  border-radius: 56px;
+  padding: 15px;
+  margin-top: 20px;
+}
+.addCardssWrapper{
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+.check{
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.check >input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none; 
+  background-color: #fff;
+  border: 1.5px solid #83858A;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.check > input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border-color: #007bff; 
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.3); 
+}
+
+
+.check > input[type="checkbox"]:checked::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 50%; 
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.check >input[type="checkbox"]:hover {
+  border-color: #0056b3; 
+  box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.2); 
+}
+.similarRestaurentWrapper{
+  margin-top: 100px;
+  padding: 0 70px;
+  padding-bottom: 70px;
 }

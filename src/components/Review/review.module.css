@@ -96,7 +96,7 @@
   flex-direction: column;
 }
 .location > h3 {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 21px;
   text-align: left;
@@ -110,7 +110,7 @@
 }
 .location > h4 {
   color: #fc8a06;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 21px;
   text-align: left;
@@ -136,7 +136,7 @@
   height: 23px;
 }
 .date > p {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 21px;
   text-align: left;

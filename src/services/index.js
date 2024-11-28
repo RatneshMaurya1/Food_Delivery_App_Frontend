@@ -181,11 +181,92 @@ export const getShareLink = async () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `${localStorage.getItem("token")}`,
+        "Authorization": `${localStorage.getItem("token")}`,
       },
     });
     if (response.ok) {
       return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const userAddress = async (data) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/address`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const getUserAddress = async () => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/address`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${localStorage.getItem("token")}`,
+      },
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+export const updatedUserAddress = async (data,addressId) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/address/${addressId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const DeleteUserAddressById = async (addressId) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/address/${addressId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    });
+    if (response.ok) {
+      return await response.json();
     } else {
       const errorResponse = await response.json();
       throw new Error(errorResponse.message || "Something went wrong");

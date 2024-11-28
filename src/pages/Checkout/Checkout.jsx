@@ -86,12 +86,12 @@ const Checkout = () => {
                   <div className={styles.mapPin}>
                     <img src={mapPinImg} alt="image" />
                   </div>
-                  <div className={styles.delivery}>
+                  <div className={styles.delivery} onClick={() => navigate("/address")}>
                     <h3>Delivery Address</h3>
                     <p>45, Green Street, Sector 12...</p>
                   </div>
                 </div>
-                <img src={forwardAddressImg} alt="image" />
+                <img src={forwardAddressImg} alt="image" onClick={() => navigate("/address")} />
               </div>
             </div>
             <div className={styles.line2}></div>

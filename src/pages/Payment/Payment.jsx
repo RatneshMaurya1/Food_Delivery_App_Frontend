@@ -5,9 +5,17 @@ import Nav from "../../components/Nav/Nav";
 import arrow from "../../assets/arrow-left.png";
 import forwardAddressImg from "../../assets/forwardAddress.png";
 import walletImg from "../../assets/Wallet.png"
+import mImage from "../../assets/M.png"
+import pImage from "../../assets/P.png"
+import sImage from "../../assets/S.png"
+import SimilarRestaurent from "../../components/SimilarRestaurent/SimilarRestaurent"
+import Footer from "../../components/Footer/Footer"
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
+  const navigate = useNavigate()
   return (
+    <>
     <div className={styles.paymentContainer}>
       <Nav />
       <div className={styles.allNav}>
@@ -39,10 +47,61 @@ const Payment = () => {
                 <div className={styles.line}></div>
               </div>
 
-              <div className={styles.notes}>
-                <p>Notes</p>
-                <textarea readOnly placeholder="Add order notes"></textarea>
-              </div>
+              <div className={styles.paymentCards}>
+                  <div className={styles.paymentCardsWrapper}>
+                    <div className={styles.mastercard}>
+                    <img src={mImage} alt="image " />
+                    </div>
+                    <div className={styles.cardTitle}>
+                      <h3>MasterCard</h3>
+                    </div>
+                  </div>
+                  <div className={styles.check}>
+                  <input type="checkbox" />
+                  </div>
+                </div>
+
+              <div className={styles.paymentCards}>
+                  <div className={styles.paymentCardsWrapper}>
+                    <div className={styles.mastercard}>
+                    <img src={pImage } alt="image " />
+                    </div>
+                    <div className={styles.cardTitle}>
+                      <h3>Paypal</h3>
+                    </div>
+                  </div>
+                  <div className={styles.check}>
+                  <input type="checkbox" />
+                  </div>
+                </div>
+
+              <div className={styles.paymentCards}>
+                  <div className={styles.paymentCardsWrapper}>
+                    <div className={styles.mastercard}>
+                    <img src={sImage} alt="image " />
+                    </div>
+                    <div className={styles.cardTitle}>
+                      <h3>Stripe</h3>
+                    </div>
+                  </div>
+                  <div className={styles.check}>
+                  <input type="checkbox" />
+                  </div>
+                </div>
+
+              <div className={styles.addCards}>
+                  <div className={styles.addCardssWrapper}>
+                    <div className={styles.addBtn}>
+                    <button>+</button>
+                    </div>
+                    <div className={styles.addBtnTitle}>
+                      <h3>Add Debit Card</h3>
+                    </div>
+                  </div>
+                  <img src={forwardAddressImg} alt="" />
+                </div>
+
+           
             </div>
           </div>
 
@@ -62,6 +121,11 @@ const Payment = () => {
         </div>
       </div>
     </div>
+      <div className={styles.similarRestaurentWrapper}>
+      <SimilarRestaurent />
+    </div>
+    <Footer />
+    </>
   );
 };
 
