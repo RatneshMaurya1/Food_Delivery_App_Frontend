@@ -9,7 +9,7 @@ import cardImage from "../../assets/credit-card.png";
 import cardEditImage from "../../assets/cardEdit.png";
 import Footer from "../../components/Footer/Footer";
 import EditCard from "../../components/EditCardModal/EditCard";
-import AddCardInProfile from "../../components/AddcardInProfile/addCardInProfile";
+import AddCardInProfile from "../../components/AddCardProfile/AddCardProfile";
 import { UserCard } from "../../services";
 
 const Profile = () => {
