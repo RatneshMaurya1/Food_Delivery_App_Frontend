@@ -8,6 +8,8 @@ import { useAuth } from "../Context/AuthContext";
 const NavBar = () => {
   const navigate = useNavigate();
   const { isLoggedIn,userName } = useAuth();
+  const id = localStorage.getItem("userId")
+
 
   const handleSignUp = () => {
     navigate("/signup");
@@ -15,6 +17,9 @@ const NavBar = () => {
   const handleSignIp = () => {
     navigate("/");
   };
+  const handleProfile = () => {
+    navigate(`/profile/${id}`)
+  }
   const displayName = userName ? `${userName.slice(0, 8)}...` : null;
   return (
     <>
@@ -35,7 +40,7 @@ const NavBar = () => {
               <img src={userImage} alt="user-image" />
             </div>
             {isLoggedIn ? (
-              <h1>Hey {displayName}</h1>
+              <h1 onClick={handleProfile}>Hey {displayName}</h1>
             ) : (
               <h1>
                 <span onClick={handleSignIp}>Login</span>/

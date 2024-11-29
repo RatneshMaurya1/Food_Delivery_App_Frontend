@@ -1,15 +1,19 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
-  const [showCart,setShowCart] = useState(false)
+  const [showCart, setShowCart] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  
 
   const handleCart = () => {
-    setShowCart(prev => !prev)
-  }
+    setShowCart((prev) => !prev);
+  };
+
 
   const logIn = (name) => {
     setIsLoggedIn(true);
@@ -35,11 +39,27 @@ export const AuthProvider = ({ children }) => {
     } else {
       localStorage.removeItem("name");
       localStorage.removeItem("userId");
+      localStorage.removeItem("Address")
+      localStorage.removeItem("addressId")
     }
   }, []);
 
+ 
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, userName, logIn, logOut,showCart,handleCart,setShowCart}}>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        userName,
+        logIn,
+        logOut,
+        showCart,
+        handleCart,
+        setShowCart,
+        selectedAddress,
+        setSelectedAddress,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

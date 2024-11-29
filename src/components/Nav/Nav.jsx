@@ -7,21 +7,22 @@ import { useAuth } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
-  const {handleCart} = useAuth()
-  const navigate = useNavigate()
+  const { handleCart } = useAuth();
+  const navigate = useNavigate();
+  const localAddress = JSON.parse(localStorage.getItem("Address"));
 
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 950,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
-  
+
   const handleOpenCart = () => {
-    handleCart()
-    navigate("/product")
-    handleScrollToTop()
-  }
+    handleCart();
+    navigate("/product");
+    handleScrollToTop();
+  };
 
   return (
     <>
@@ -40,7 +41,7 @@ const Nav = () => {
             <div className={styles.locationImg}>
               <img src={locationImage} alt="locationImage" />
             </div>
-            <h1>Regent Street, A4, A4201, London</h1>
+            {localAddress && <h1>{localAddress.fullAddress},{localAddress.city},{localAddress.pinCode},{localAddress.state}</h1>}
             <h3>Change Location</h3>
           </div>
 

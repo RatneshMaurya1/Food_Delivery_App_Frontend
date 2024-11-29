@@ -8,6 +8,8 @@ import Payment from "./pages/Payment/Payment";
 import { AuthProvider, useAuth } from './components/Context/AuthContext';
 import { Toaster } from 'react-hot-toast';
 import Address from "./pages/Address/Address"
+import OrderSuccess from './pages/OrderSuccess/OrderSuccess';
+import Profile from './pages/Profile/Profile';
 
 const DefaultRoute = () => {
   const { isLoggedIn } = useAuth()
@@ -29,6 +31,8 @@ function App() {
             <Route path="/checkout/:id" element={<Checkout />} />
             <Route path="/payment/:id" element={<Payment />} />
             <Route path='/address' element={<Address/>} />
+            <Route path='/orderSuccess/:id' element={<OrderSuccess/>} />
+            <Route path='/profile/:id' element={<Profile/>} />
           </Routes>
         </BrowserRouter>
         <Toaster />

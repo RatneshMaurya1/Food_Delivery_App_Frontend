@@ -17,6 +17,8 @@ const Checkout = () => {
   const [item,setItem] = useState(0)
   const { id } = useParams()
   const navigate = useNavigate()
+  const localAddress = JSON.parse(localStorage.getItem("Address"));
+
 
 
   useEffect(() => {
@@ -26,12 +28,16 @@ const Checkout = () => {
         setCheckout(response.cart)
         setItem(response.cart.length)
         setTotalPrice(response.totalPrice);
+        localStorage.setItem("totalAmount", response.totalPrice)
       } catch (error) {
         toast.error(error.message);
       }
     };
     getCheckout()
   }, []);
+
+
+ 
   return (
     <>
     <div className={styles.checkoutContainer}>
@@ -88,7 +94,7 @@ const Checkout = () => {
                   </div>
                   <div className={styles.delivery} onClick={() => navigate("/address")}>
                     <h3>Delivery Address</h3>
-                    <p>45, Green Street, Sector 12...</p>
+                    {localAddress ? <p>{localAddress.fullAddress},{localAddress.city},{localAddress.pinCode},{localAddress.state}</p> : <p>Select Address</p>}
                   </div>
                 </div>
                 <img src={forwardAddressImg} alt="image" onClick={() => navigate("/address")} />

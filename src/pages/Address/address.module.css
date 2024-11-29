@@ -16,6 +16,7 @@
 .addressHeading > img {
   width: 39px;
   height: 39px;
+  cursor: pointer;
 }
 .addressHeading > p {
   font-size: 25px;
@@ -81,6 +82,7 @@
   border: none;
   background: #ffedd8;
   color: #fc8a06;
+  cursor: pointer;
 }
 .userAddress > p {
   font-size: 12px;
