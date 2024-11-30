@@ -4,7 +4,6 @@
   padding: 0 70px;
 }
 .productHeader {
-  max-width: 1528px;
   width: 100%;
   height: 477px;
   border-radius: 12px;
@@ -195,7 +194,6 @@
   outline: none;
 }
 .productList {
-  max-width: 1528px;
   height: 96px;
   width: 100%;
   top: 845px;
@@ -235,7 +233,6 @@
   height: auto;
   width: 100%;
   padding: 0 70px;
-  max-width: 1528px;
   display: flex;
 }
 .section1Image {
@@ -276,7 +273,6 @@
   flex-shrink: 0;
 }
 .informationWrapper {
-  max-width: 1528px;
   height: auto;
   width: 100%;
   margin-top: 20px;

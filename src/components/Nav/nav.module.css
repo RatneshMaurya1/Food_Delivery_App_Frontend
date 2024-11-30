@@ -1,7 +1,6 @@
 nav {
   height: 70px;
   width: 100%;
-  max-width: 1528px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,7 +71,6 @@ nav {
   font-weight: 600;
   line-height: 22.5px;
   text-align: left;
-  cursor: pointer;
 }
 .location > h3 {
   color: #fc8a06;
