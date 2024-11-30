@@ -12,7 +12,7 @@ import SimilarRestaurent from "../../components/SimilarRestaurent/SimilarRestaur
 import Footer from "../../components/Footer/Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import AddCard from "../../components/AddCardModal/AddCard";
-import { UserCard } from "../../services";
+import { removeCartItem, UserCard } from "../../services";
 import toast from "react-hot-toast";
 
 const Payment = () => {
@@ -56,7 +56,17 @@ const Payment = () => {
     if (!isCardValid) {
       return toast.error("Please select a valid card you added");
     }
-  
+    if(localStorage.getItem("userId") === localStorage.getItem("cartUserId")){
+      const clearCart = async() => {
+        try {
+          const response = await removeCartItem(id)
+          console.log(response)
+        } catch (error) {
+          console.log(error.message)
+        }
+      }
+   clearCart()
+    }
     navigate(`/orderSuccess/${id}`);
   };
 

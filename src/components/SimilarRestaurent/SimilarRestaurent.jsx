@@ -11,7 +11,6 @@ const SimilarRestaurent = () => {
       try {
         const getImageUrl = async () => {
           const response = await getImage();
-          console.log(response.data);
           setImageUrl(response.data);
         };
         getImageUrl();

@@ -7,7 +7,7 @@ import mapPinImg from "../../assets/MapPin.png";
 import forwardAddressImg from "../../assets/forwardAddress.png";
 import SimilarRestaurent from "../../components/SimilarRestaurent/SimilarRestaurent";
 import Footer from "../../components/Footer/Footer"
-import { getCartItem } from "../../services";
+import { getCartItem, getCheckoutItem } from "../../services";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 
@@ -24,11 +24,12 @@ const Checkout = () => {
   useEffect(() => {
     const getCheckout = async () => {
       try {
-        const response = await getCartItem(id);
+        const response = await getCheckoutItem(id);
         setCheckout(response.cart)
-        setItem(response.cart.length)
-        setTotalPrice(response.totalPrice);
-        localStorage.setItem("totalAmount", response.totalPrice)
+        setItem(response?.cart?.length || 0)
+        setTotalPrice(response?.totalPrice || 0);
+        localStorage.setItem("totalAmount", response.totalPrice || 0)
+        localStorage.setItem("cartUserId",response.cartUserId)
       } catch (error) {
         toast.error(error.message);
       }
@@ -36,6 +37,12 @@ const Checkout = () => {
     getCheckout()
   }, []);
 
+  useEffect(() => {
+    if(checkout?.length > 0){
+      let title = checkout.map((item) => item.cardId.title)
+      localStorage.setItem("title", JSON.stringify(title))
+    }
+  })
 
  
   return (
@@ -55,7 +62,7 @@ const Checkout = () => {
         <div className={styles.Details}>
           <div className={styles.notesAndDetails}>
             <div className={styles.getItem}>
-            {checkout.length > 0 ? (
+            {checkout?.length > 0 ? (
               checkout.map((checkoutItem) => (
               <div className={styles.allItem} key={checkoutItem._id}>
               <div className={styles.checkoutDetails}>

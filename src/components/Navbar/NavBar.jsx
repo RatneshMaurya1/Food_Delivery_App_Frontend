@@ -17,7 +17,7 @@ const NavBar = () => {
     navigate("/");
   };
   const handleProfile = () => {
-    navigate(`/profile/${id}`)
+    navigate(`/profile`)
   }
   const displayName = userName ? `${userName.slice(0, 8)}...` : null;
   return (

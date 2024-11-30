@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { updatedDebitCard, userDebitCard } from "../../services/index";
+import { deleteDebitCard, updatedDebitCard, userDebitCard } from "../../services/index";
 import styles from "./editcard.module.css";
 
 const EditCard = ({ isEditCard, onCloseCard, setIsEditCard, cardId }) => {
@@ -14,11 +14,21 @@ const EditCard = ({ isEditCard, onCloseCard, setIsEditCard, cardId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
     const { cardNumber, expire, cvc, cardName } = formData;
     if (!cardNumber && !expire && !cvc && !cardName) {
       return toast.error("At least one field is required to update.")
+    }
+    if (cardNumber && cardNumber.length !== 16 || isNaN(cardNumber)) {
+      return res.status(400).json({ message: "Invalid card number" });
+    }
+    const expireRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (expire && !expireRegex.test(expire)) {
+      return res.status(400).json({ message: "Invalid expiration date format (MM/YY)" });
+    }
+
+    if (cvc && cvc.length !== 3 || isNaN(cvc)) {
+      return res.status(400).json({ message: "Invalid CVC" });
     }
 
     setLoading(true);
@@ -42,6 +52,23 @@ const EditCard = ({ isEditCard, onCloseCard, setIsEditCard, cardId }) => {
       setIsEditCard(false);
     }
   };
+
+  const handleRemoveCard = async (cardId) => {
+    setLoading(true);
+    try {
+      const response = await deleteDebitCard(cardId);
+      if (response.message === "card deleted successfully") {
+        toast.success(response.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error.message)
+    }finally{
+      setLoading(false);
+      setIsEditCard(false)
+    }
+  };
+
 
   if (!isEditCard) return null;
 
@@ -95,7 +122,6 @@ const EditCard = ({ isEditCard, onCloseCard, setIsEditCard, cardId }) => {
             />
           </label>
           <div className={styles.actions}>
-            <button className={styles.removeButton}>Remove</button>
 
             <div className={styles.cancelSaveButton}>
               <button
@@ -116,6 +142,7 @@ const EditCard = ({ isEditCard, onCloseCard, setIsEditCard, cardId }) => {
             </div>
           </div>
         </form>
+        <button className={styles.removeButton} disabled={loading} onClick={(e) => {e.preventDefault(); handleRemoveCard(cardId)}}>{loading ? "Loading..." : "Remove"}</button>
       </div>
     </div>
   );

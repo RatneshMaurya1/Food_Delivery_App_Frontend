@@ -32,7 +32,7 @@ function App() {
             <Route path="/payment/:id" element={<Payment />} />
             <Route path='/address' element={<Address/>} />
             <Route path='/orderSuccess/:id' element={<OrderSuccess/>} />
-            <Route path='/profile/:id' element={<Profile/>} />
+            <Route path='/profile' element={<Profile/>} />
           </Routes>
         </BrowserRouter>
         <Toaster />

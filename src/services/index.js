@@ -161,7 +161,7 @@ export const getCheckoutItem = async (cartId) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `${localStorage.getItem("token")}`,
+        "Authorization": `${localStorage.getItem("token")}`,
       },
     });
     if (response.ok) {
@@ -351,6 +351,88 @@ export const updatedDebitCard = async (data,userCardId) => {
     } else {
       const errorResponse = await response.json();
       throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+export const deleteDebitCard = async (userCardId) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/debitCard/${userCardId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${localStorage.getItem("token")}`,
+      },
+    });
+
+    if (response.ok) {
+      return response.json(); 
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Failed to delete card");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const getUserProfile = async () => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/profile`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${localStorage.getItem("token")}`,
+      },
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const updatedUserProfile = async (data) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/profile/edit`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Something went wrong");
+    }
+  } catch (error) {
+    throw new Error(error.message || "An unexpected error occurred");
+  }
+};
+
+export const removeCartItem = async (cartId) => {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/cart/clear/${cartId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${localStorage.getItem("token")}`,
+      },
+    });
+
+    if (response.ok) {
+      return response.json(); 
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.message || "Failed to delete card");
     }
   } catch (error) {
     throw new Error(error.message || "An unexpected error occurred");
