@@ -1,4 +1,3 @@
-
 .popularRestaaurent {
     height: 365px;
     width: 100%;
@@ -28,12 +27,13 @@
   }
   .popularRestaaurentDiv1 {
     height: 250px;
-    width: 212.5px;
+    width: 15.4%;
     background: #FC8A06;
     border-radius: 12px;
     flex-shrink: 0;
     margin-top: 30px;
     cursor: pointer;
+    overflow: hidden;
   }
   .popularRestaaurentImage1 {
     height: 183px;
@@ -43,6 +43,7 @@
     height: 100%;
     width: 100%;
     cursor: pointer;
+    object-fit: cover;
   }
   .RestaurentCards{
     display: flex;
@@ -59,4 +60,65 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;  
     flex-shrink: 0;
+  }
+
+  @media (max-width:1200px){
+    .popularRestaaurentDiv1{
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+    }
+    .popularRestaaurentImage1{
+      height: 200px;
+      gap: 5px;
+    
+    }
+    .popularRestaaurentImage1 > img{
+      object-fit: fill;
+    }
+    .RestaurentCards{
+      margin: 10px 10px;
+    }
+    .RestaurentCards > h3{
+      font-size: 14px;
+    }
+    .popularRestaaurentImage{
+      gap:15px;
+    }
+  }
+  @media (max-width:1200px){
+    .popularRestaaurentDiv1{
+      height: 170px;
+      display: flex;
+      flex-direction: column;
+    }
+    .popularRestaaurentImage1{
+      height: 200px;
+      gap: 3px;
+    
+    }
+    .RestaurentCards > h3{
+      font-size: 12px;
+    }
+    .popularRestaaurent {
+      height: 280px;
+    }
+  
+  }
+  @media (max-width:992px){
+    .popularRestaaurentDiv1{
+      width: 140px;
+      /* height: 200px; */
+      /* display: inline-block; */
+    }
+    .popularRestaaurent {
+      margin-left: 30px;
+      width: 92%;
+    }
+    .popularRestaaurentImage{
+      overflow-x: scroll;
+      overflow-y: hidden;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+    }
   }

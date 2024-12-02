@@ -14,6 +14,7 @@ import orderFood2 from "../../assets/order-food2.png";
 import orderFood3 from "../../assets/order-food3.png";
 import PopularRestaurent from "../../components/PopularRestaurent/PopularRestaurent";
 import Footer from "../../components/Footer/Footer";
+import nextPageBtn from "../../assets/NextpageBtn.png"
 
 const Home = () => {
   const [imageUrl, setImageUrl] = useState([]);
@@ -42,7 +43,7 @@ const Home = () => {
             <h4>Enter a postcode to see what we deliver</h4>
             <div className={styles.headerInput}>
               <input type="text" readOnly placeholder="e.g. EC4R 3TE" />
-              <button>Search</button>
+              <button>Search <img className={styles.nextPage} src={nextPageBtn} alt="" /></button>
             </div>
           </div>
           <div className={styles.headerImage1}>
@@ -92,11 +93,13 @@ const Home = () => {
         <div className={styles.section1}>
           <div className={styles.section1Header}>
             <h4>Up to -40% 🎊 Order.uk exclusive deals</h4>
+            <h6>Up to -40% Discount Offers 🎊 </h6>
 
             <div className={styles.itemList}>
               <p>Vegan</p>
               <p>Sushi</p>
               <div className={styles.pizza}>
+                <img className={styles.nextPage1} src={nextPageBtn} alt="btn-image" />
                 <h5>Pizza & Fastfood</h5>
               </div>
               <p>others</p>

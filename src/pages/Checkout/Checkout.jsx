@@ -10,6 +10,7 @@ import Footer from "../../components/Footer/Footer"
 import { getCartItem, getCheckoutItem } from "../../services";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import arrowLeftImg from "../../assets/ArrowLeft.png"
 
 const Checkout = () => {
   const [checkout,setCheckout] = useState([])
@@ -60,6 +61,12 @@ const Checkout = () => {
         </div>
 
         <div className={styles.Details}>
+          <div className={styles.checkoutArrow}>
+            <div className={styles.arrowLeft}>
+              <img src={arrowLeftImg} alt="arrow-image" onClick={() => navigate(-1)}/>
+            </div>
+            <p>Checkout</p>
+          </div>
           <div className={styles.notesAndDetails}>
             <div className={styles.getItem}>
             {checkout?.length > 0 ? (
@@ -93,6 +100,7 @@ const Checkout = () => {
           </div>
 
           <div className={styles.allAddressDetails}>
+            <p>Delivery Address</p>
             <div className={styles.addressDetails}>
               <div className={styles.input}>
                 <div className={styles.allInputItem}>
@@ -129,7 +137,9 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+      <div className={styles.similar}>
       <SimilarRestaurent/>
+      </div>
     </div>
     <div className={styles.footer}>
     <Footer/>

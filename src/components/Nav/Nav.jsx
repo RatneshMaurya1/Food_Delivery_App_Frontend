@@ -1,10 +1,13 @@
 import React from "react";
 import orderImage from "../../assets/star.png";
 import locationImage from "../../assets/Location.png";
-import cartImage from "../../assets/cartImage.png";
 import styles from "./nav.module.css";
 import { useAuth } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import basketImg from "../../assets/Basket.png"
+import forwordBtn from "../../assets/ForwardButton.png"
+import menuImg from "../../assets/Menu.png"
+import logoImg from "../../assets/LOGO.png"
 
 const Nav = () => {
   const { handleCart } = useAuth();
@@ -42,11 +45,28 @@ const Nav = () => {
               <img src={locationImage} alt="locationImage" />
             </div>
             {localAddress && <h1>{localAddress.fullAddress},{localAddress.city},{localAddress.pinCode},{localAddress.state}</h1>}
-            <h3>Change Location</h3>
+            <h3 onClick={() => navigate("/address")}>Change Location</h3>
           </div>
 
-          <div className={styles.cart}>
-            <img src={cartImage} onClick={handleOpenCart} alt="locationImage" />
+          <div className={styles.cart} onClick={handleOpenCart}>
+            <div className={styles.cartImage}>
+            <img src={basketImg} alt="basket-image" />
+            <p>My Cart</p>
+            <div className={styles.line}></div>
+            </div>
+            <div className={styles.forward}>
+            <div className={styles.line}></div>
+              <img src={forwordBtn} alt="forward-image" />
+            </div>
+          </div>
+        </div>
+        <div className={styles.menu}>
+          <div className={styles.logo}>
+          <img src={logoImg} alt="logo-image" />
+          </div>
+          <div className={styles.menuImage}>
+            <div className={styles.line1}></div>
+            <img src={menuImg} alt="menu-image" />
           </div>
         </div>
       </nav>

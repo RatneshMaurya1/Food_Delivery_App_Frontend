@@ -93,6 +93,14 @@ const Review = () => {
             </div>
           ))}
         </div>
+        <div className={styles.nextBackBtn1}>
+          <div className={styles.backBtn} onClick={handleBackBtn}>
+            <img src={backBtn} alt="Back" />
+          </div>
+          <div className={styles.nextBtn} onClick={handleNextBtn}>
+            <img src={nextBtn} alt="Next" />
+          </div>
+        </div>
       </div>
       <div className={styles.ratingImg}>
         {imageUrl.map((img, i) => (

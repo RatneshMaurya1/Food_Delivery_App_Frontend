@@ -27,13 +27,10 @@
 }
 
 .cardDetails > h2 {
-  font-family: Poppins;
   font-size: 32px;
   font-weight: 700;
   line-height: 38px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 }
 
 .cardDetails > p {
@@ -43,8 +40,6 @@
   font-weight: 700;
   line-height: 46px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 }
 .number{
     display: flex;
@@ -57,26 +52,18 @@
     font-weight: 700;
     line-height: 46px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
 }
 .number > h3 {
-  font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
   line-height: 31px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 }
 .website > h3 {
-  font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
   line-height: 31px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 }
 .website > p{
     margin: 0;
@@ -85,17 +72,12 @@
     font-weight: 700;
     line-height: 46px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
 }
 .description > h3 {
-  font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
   line-height: 31px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 }
 .icon{
   background-color: #000;
@@ -103,4 +85,47 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width:600px) {
+  .custom-popup{
+    top: 200px;
+    left: 30px;
+  }
+
+}
+@media (max-width:500px) {
+  .custom-popup{
+    top: 130px;
+    left: 30px;
+    width: 300px;
+    height: 350px;
+  }
+  #map{
+    height: 500px;
+  }
+
+}
+@media (max-width:415px) {
+  .custom-popup{
+    top: 130px;
+    left: 30px;
+    width: 250px;
+    height: 300px;
+  }
+  .cardDetails > h2{
+    font-size: 25px;
+    line-height: 10px;
+    margin-top: 40px;
+  }
+  .description > h3{
+    font-size: 12px;
+  }
+  .website{
+    display: none;
+  }
+  #map{
+    height: 500px;
+  }
+
 }

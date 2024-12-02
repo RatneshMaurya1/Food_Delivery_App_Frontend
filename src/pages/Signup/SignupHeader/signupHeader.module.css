@@ -213,3 +213,52 @@ form {
     height: 20%;
   }
 }
+@media (max-width: 992px){
+  .loginImg{
+    display: none;
+  }
+  .loginPage{
+    width: 100%;
+  }
+}
+
+  @media (max-width: 600px){
+    .loginDescription > p{
+      font-size: 15px;
+      line-height: 24px;
+    }
+    .loginDescription > p > span{
+      font-size: 15px;
+    }
+    .loginWelcome > h1{
+      font-size: 28px;
+      line-height: 10px;
+    }
+  }
+  @media (max-width: 480px){
+    .signup > p{
+      font-size: 15px;
+    }
+    .header{
+      padding: 20px 0px;
+    }
+    .input > input{
+      font-size: 13px;
+    }
+  }
+  @media (max-width: 415px){
+    .signup > p{
+      font-size: 13px;
+    }
+    .loginDescription > p{
+      font-size: 13px;
+      line-height: 24px;
+    }
+    .loginWelcome > h1{
+      font-size: 22px;
+      line-height: 10px;
+    }
+    .loginDescription > p > span{
+      font-size: 13px;
+    }
+  }

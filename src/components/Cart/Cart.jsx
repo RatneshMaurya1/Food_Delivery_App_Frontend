@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from ".//cart.module.css";
+import styles from "./cart.module.css";
 import shareLink from "../../assets/share-2.png";
 import basketImg from "../../assets/Basket.png";
 import deleteBtn from "../../assets/Remove.png";

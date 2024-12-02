@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useMemo } from "react";
 import styles from "./product.module.css";
 import Nav from "../../components/Nav/Nav";
 import NavBar from "../../components/Navbar/NavBar";
@@ -17,11 +17,15 @@ import Review from "../../components/Review/Review";
 import SimilarRestaurent from "../../components/SimilarRestaurent/SimilarRestaurent";
 import Footer from "../../components/Footer/Footer";
 import { useAuth } from "../../components/Context/AuthContext";
+import CartPopup from "../../components/CartPopup/CartPopup";
 
 const Product = () => {
   const [imageUrl, setImageUrl] = useState([]);
   const [cartUpdated, setCartUpdated] = useState(false);
-  const { showCart } = useAuth();
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const { showCart, allCardName } = useAuth();
+
 
   useEffect(() => {
     try {
@@ -38,12 +42,12 @@ const Product = () => {
   const handleCartUpdate = () => {
     setCartUpdated((prev) => !prev);
   };
-  
+
   return (
     <>
       <div className={styles.container}>
         <Nav />
-        <NavBar />
+        <NavBar setIsCartOpen={setIsCartOpen} />
         <div className={styles.productHeader}>
           <div className={styles.headerItem1}>
             <h3>I'm lovin' it!</h3>
@@ -80,7 +84,14 @@ const Product = () => {
           <h2>All Offers from McDonald’s East London</h2>
           <div className={styles.searchInput}>
             <img src={searchImg} alt="image" />
-            <input type="text" placeholder="Search from menu..." />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              placeholder="Search from menu..."
+            />
           </div>
         </div>
       </div>
@@ -102,7 +113,10 @@ const Product = () => {
 
       <div className={styles.main}>
         <div>
-          <div className={styles.section1Image}>
+          <div
+            className={styles.section1Image}
+            onClick={() => setIsCartOpen(true)}
+          >
             <div className={styles.section1Image1}>
               {imageUrl.map((img, i) => (
                 <img key={i} src={img.data.productImage3} alt="image" />
@@ -119,9 +133,23 @@ const Product = () => {
               ))}
             </div>
           </div>
-          <Burgers cartUpdated={cartUpdated} onCartUpdate={handleCartUpdate}/>
+          <Burgers
+            cartUpdated={cartUpdated}
+            onCartUpdate={handleCartUpdate}
+            setIsCartOpen={setIsCartOpen}
+            search={search}
+          />
         </div>
-        {showCart && <Cart cartUpdated={cartUpdated} onCartUpdate={handleCartUpdate}/>}
+        {showCart && (
+          <Cart cartUpdated={cartUpdated} onCartUpdate={handleCartUpdate} />
+        )}
+        <div className={styles.cartpopup}>
+          <CartPopup
+            isOpen={isCartOpen}
+            cartUpdated={cartUpdated}
+            onClose={() => setIsCartOpen(false)}
+          />
+        </div>
       </div>
       <div className={styles.informationWrapper}>
         <div className={styles.information}>

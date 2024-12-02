@@ -4,12 +4,10 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0px;
   border-radius: 0px 0px 12px 12px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
-  background: #fafafa;
   border: 1px solid #0000001a;
+  background: #fafafa;
+  opacity: 1;
 }
 
 .order {
@@ -17,33 +15,31 @@ nav {
   gap: 15px;
   padding-left: 35px;
 }
+
 .orderImg {
   height: 25px;
   width: 25px;
   flex-shrink: 0;
 }
+
 .orderImg > img {
   height: 100%;
   width: 100%;
 }
+
 .order > h1 {
   font-size: 15px;
   font-weight: 600;
   line-height: 22.5px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  flex-shrink: 0;
 }
+
 .order > h1 > span {
   font-size: 15px;
   font-weight: 700;
   line-height: 22.5px;
   text-align: left;
   text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   color: #fc8a06;
 }
 
@@ -52,26 +48,31 @@ nav {
   align-items: center;
   gap: 50px;
 }
+
 .location {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
 }
+
 .locationImg {
   height: 25px;
   width: 25px;
 }
+
 .locationImg > img {
   height: 100%;
   width: 100%;
 }
+
 .location > h1 {
   font-size: 15px;
   font-weight: 600;
   line-height: 22.5px;
   text-align: left;
 }
+
 .location > h3 {
   color: #fc8a06;
   font-size: 14px;
@@ -79,17 +80,185 @@ nav {
   line-height: 21px;
   text-align: left;
   text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-}
-.cart {
-  height: 70px;
-  width: 378px;
-  flex-shrink: 0;
   cursor: pointer;
 }
-.cart > img{
-    height: 100%;
-    width: 100%;
+
+.cart {
+  height: 70px;
+  width: 338px;
+  flex-shrink: 0;
+  cursor: pointer;
+  background: #028643;
+  border-radius: 0px 0px 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+.cartImage{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 100%;
+}
+.cartImage > p{
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 10px 0;
+  margin-right: 20px;
+}
+.cartImage > img {
+  height: 50px;
+  width: 50px;
+  margin: 10px 0;
+  margin-left: 10px;
+}
+.line{
+  height: 100%;
+  border: 0.5px solid #FFFFFF;
+}
+.forward{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 25%;
+}
+.forward > img{
+  height: 30px;
+  width: 30px;
+  margin-left: 20px;
+}
+.menu{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: none;
+}
+.logo{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.line1{
+  height: 100%;
+  width: 1px;
+  border: 1px solid #0000004D;
+}
+.menuImage{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 20px;
+  padding-right: 20px;
+}
+@media (max-width: 1280px){
+  .cart{
+    width: 260px;
+  }
+  .cartImage > P{
+    margin-right: 5px;
+  }
+  .forward{
+    width: 19%;
+  }
+  .forward > img{
+    margin-left: 8px;
+  }
+  .order > h1{
+    font-size: 13px;
+  }
+  .order > h1 > span{
+    font-size: 13px;
+  }
+  .location > h1{
+    font-size: 13px;
+  }
+  .location > h3{
+    font-size: 13px;
+  }
+}
+@media (max-width: 1200px) {
+  .locationCart {
+    gap: 30px;
+  }
+
+
+   .order {
+    padding-left: 15px;
+   }
+   .order > h1{
+    font-size: 12px;
+  }
+  .order > h1 > span{
+    font-size: 12px;
+  }
+  .location > h1{
+    font-size: 12px;
+  }
+  .location > h3{
+    font-size: 13px;
+  }
+  .orderImg{
+    height: 20px;
+    width: 20px;
+  }
+  .locationImg{
+    height: 20px;
+    width: 20px;
+  }
+
+}
+
+@media (max-width: 1100px) {
+  .order > h1{
+    font-size: 11px;
+  }
+  .order > h1 > span{
+    font-size: 11px;
+  }
+  .location > h1{
+    font-size: 11px;
+  }
+  .location > h3{
+    font-size: 12px;
+  }
+  .order{
+    gap: 10px;
+  }
+}
+@media (max-width: 1024px){
+  .order > h1{
+    font-size: 10px;
+  }
+  .order > h1 > span{
+    font-size: 10px;
+  }
+  .location > h1{
+    font-size: 10px;
+  }
+  .location > h3{
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 992px){
+  .order{
+    display: none;
+  }
+  .locationCart{
+    display: none;
+  }
+  .menu{
+    display: flex;
+  }
+  nav{
+    background: none;
+    border: none;
+  }
 }

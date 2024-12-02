@@ -24,7 +24,7 @@ const MapComponent = () => {
                   <img src="${prevIcon}"/>
                </div>`,
         iconSize: [80, 80],
-        iconAnchor: [-300, 100],
+        iconAnchor: [50, 50],
       });
 
       const marker = L.marker([28.7041, 77.1025], { icon: customIcon }).addTo(
@@ -63,7 +63,7 @@ const MapComponent = () => {
 
   return (
     <div className="map-container">
-      <div id="map"></div>
+      <div id="map" onClick={() => setPopupVisible(false)}></div>
 
       {popupVisible && (
         <div className="custom-popup">

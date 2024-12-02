@@ -448,3 +448,8 @@
   text-decoration-skip-ink: none;
   cursor: pointer;
 }
+@media (max-width:992px) {
+  .cart{
+    display: none;
+  }
+}

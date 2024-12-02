@@ -7,6 +7,7 @@
     width: 100%;
     background-color: #d9d9d9;
     display: flex;
+    gap: 20px;
     padding-top: 50px;
     padding-left: 80px;
     padding-right: 60px;
@@ -129,6 +130,7 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
   }
+  
   .policy {
     height: 10%;
     width: 100%;
@@ -263,51 +265,134 @@
     flex-shrink: 0;
   }
   
-  @media (max-width: 1150px) {
-    .footerList2 {
-        padding: 0 20px;
-    }
-    .terms {
-        gap: 30px;
-    }
+@media (max-width:1200px) {
+  .item1Heading{
+    font-size: 15px;
   }
-  @media (max-width: 1024px) {
-    .footerList2 {
-        padding: 0 20px;
-    }
-    .terms {
-        gap: 20px;
-    }
+  .item1Input{
+    width: 90%;
   }
-  
-  @media (max-width: 768px) {
-    .footerList2 {
-        padding: 0 10px;
-    }
-    .terms,
-    .copyright {
-        font-size: 13px;
-        line-height: 20px;
-    }
-    .terms {
-        gap: 10px;
-    }
+  .footerList1{
+    padding-right: 20px;
   }
-  
-  @media (max-width: 1024px) {
-    .loginPage {
-  
-        align-items: center;
-    }
-    .items {
-        width: 80%; 
-        height: auto; 
-    }
-    .footerList1{
-      height: auto;
-    }
-    .footerList2{
-      height: 20%;
-    }
+  .item2 > p{
+    font-size: 15px;
   }
-  
+  .item3 > p{
+    font-size: 15px;
+  }
+  .item2 > ul > li{
+    font-size: 13px;
+  }
+  .item3 > ul > li{
+    font-size: 13px;
+  }
+  .store{
+    width: 300px;
+  }
+  .footerLogo{
+    width: 200px;
+    height: 55px;
+  }
+  .company > p{
+    font-size: 13px;
+  }
+}
+@media (max-width:1100px){
+  .terms{
+    gap: 20px;
+    font-size: 13px;
+  }
+}
+@media (max-width:992px){
+  .footerList1{
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 0px;
+    padding-right: 0px;
+    gap: 40px;
+  }
+  .footer{
+    height: auto;
+  }
+  .listItems2{
+    flex-direction: column;
+    gap: 40px;
+    flex-shrink: 0;
+  }
+  .item1Heading{
+    font-size: 15px;
+  }
+  .item1Input{
+    width: 90%;
+  }
+  .footerList1{
+    padding-right: 20px;
+  }
+  .item2 > p{
+    font-size: 18px;
+  }
+  .item3 > p{
+    font-size: 18px;
+  }
+  .item2 > ul > li{
+    font-size: 15px;
+  }
+  .item3 > ul > li{
+    font-size: 15px;
+  }
+  .store{
+    width: 360px;
+  }
+  .footerLogo{
+    width: 260px;
+    height: 55px;
+  }
+  .company > p{
+    font-size: 15px;
+  }
+  .item1 {
+    width: 350px;
+  }
+  .item2{
+    width: 350px;
+    margin-left: 0;
+  }
+  .item3{
+    width: 350px;
+    margin-left: 0;
+  }
+  .company{
+    flex-shrink: 0;
+  }
+  .listItems1{
+    width: 350px;
+  }
+  .policy{
+    justify-content: center;
+    margin-left: 0;
+  }
+  .item1Logo{
+    justify-content: center;
+    margin-left: 0;
+  }
+  .terms{
+    display: none;
+  }
+  .footerList2{
+    justify-content: center;
+  }
+}
+@media (max-width:400px){
+  .listItems1{
+    margin-left: 40px;
+  }
+  .listItems2{
+    margin-left: 40px;
+  }
+}
+

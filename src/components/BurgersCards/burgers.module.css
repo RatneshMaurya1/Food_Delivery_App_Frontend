@@ -44,28 +44,20 @@
   padding-left: 30px;
 }
 .cardDetails > h3 {
-  font-family: Poppins;
   font-size: 20px;
   font-weight: 600;
   line-height: 23px;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 }
 .cardDetails > h4 {
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
   line-height: 25px;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 }
 .cardDetails > h5 {
-  font-family: Poppins;
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 }
 .burgerCardImg {
   height: 100%;
@@ -130,4 +122,85 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #FC8A06; 
+}
+@media (max-width:1440px) {
+  .burgerCard{
+    width: 32%;
+    min-width: 400px;
+  }
+  .cardDetails > h3{
+    font-size: 15px;
+  }
+  .mainImg > img{
+    object-fit: fill;
+  }
+}
+@media (max-width:1440px){
+  .cardDetails > h4{
+    font-size: 12px;
+  }
+  .burgerCard{
+    height: 185px;
+  }
+}
+@media (max-width:1100px){
+  .burgerCard{
+    width: 31%;
+    min-width: 380px;
+  }
+  .cardDetails > h3 {
+    line-height: 15px;
+    font-size: 13px;
+  }
+  .cardDetails > h4 {
+    line-height: 15px;
+    font-size: 11px;
+  }
+  .cardDetails > h5 {
+    line-height: 17px;
+  }
+  .addBg {
+    position: absolute;
+    width: 68px;
+    height: 61px;
+    bottom: 20px;
+    right: 10px;
+    border-radius: 45px 0px 12px 0px;
+  }
+  .addBg > img {
+    height: 100%;
+    width: 100%;
+  }
+  .addImg {
+    position: absolute;
+    width: 39px;
+    height: 39px;
+    bottom: 30px;
+    right: 20px;
+  }
+  .addImg > img {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
+
+}
+@media (max-width:1024px){
+  .burgerCard{
+    height: 170px;
+  }
+  .cardDetails > h3 {
+    font-size: 11px;
+  }
+}
+
+@media (max-width:419px){
+  .burgerCard{
+    min-width: 350px;
+  }
+}
+@media (max-width:380px){
+  .burgerCard{
+    min-width: 300px;
+  }
 }

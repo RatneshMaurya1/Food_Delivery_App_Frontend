@@ -86,6 +86,7 @@
 .profileImg {
   width: 54px;
   height: 54px;
+  flex-shrink: 0;
 }
 .profileImg > img {
   height: 100%;
@@ -170,4 +171,150 @@
 .ratingImg > img {
   height: 100%;
   width: 100%;
+}
+.nextBackBtn1{
+  display: none;
+}
+
+@media (max-width:1440px) {
+  .profile{
+    width: 32%;
+  }
+}
+@media (max-width:1280px) {
+  .location > h3{
+    font-size: 11px;
+  }
+  .location > h4{
+    font-size: 11px;
+  }
+  .description > p{
+    font-size: 14px;
+  }
+  .date > p{
+    font-size: 11px;
+  }
+  .date > img{
+    height: 17px;
+    width: 17px;
+  }
+  .date{
+    gap: 5px;
+  }
+  .profileImgWrapper{
+    gap: 10px;
+  }
+}
+@media (max-width:1200px) {
+  .profile {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 406px;
+    height: 274px;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 0 30px;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+}
+@media (max-width:768px) {
+  .nextBackBtn{
+    display: none;
+  }
+  .nextBackBtn1{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 20px;
+  }
+  .backBtn{
+    height: 60px;
+    width: 60px;
+  }
+  .nextBtn{
+    height: 60px;
+    width: 60px;
+  }
+  .ratingImg {
+    position: absolute;
+    width: 106px;
+    height: 128px;
+    border-radius: 12px;
+    opacity: 0px;
+    left: 80%;
+    bottom: none;
+    top: -60px;
+    z-index: 1;
+  }
+  .profile {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 456px;
+    height: 274px;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 0 30px;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+  .profileContainer{
+    justify-content: space-between;
+    gap: 70px;
+  }
+} 
+
+@media (max-width:600px){
+  .ratingImg {
+    position: absolute;
+    width: 106px;
+    height: 128px;
+    border-radius: 12px;
+    opacity: 0px;
+    left: 75%;
+    bottom: none;
+    top: -60px;
+    z-index: 1;
+  }
+  .reviewHeader > h1{
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 25px;
+  }
+
+}
+
+@media (max-width:480px) {
+  .review{
+    padding: 0 10px;
+  }
+}
+@media (max-width:450px) {
+  .review{
+    padding: 0 10px;
+  }
+  .ratingImg{
+    left: 66%;
+  }
+  .profile {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 406px;
+    height: 274px;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 0 30px;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+  .date > p{
+    font-size: 8px;
+  }
 }
