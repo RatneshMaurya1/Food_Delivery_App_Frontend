@@ -96,6 +96,8 @@ const Product = () => {
           </div>
         </div>
       </div>
+      <div className={styles.productScroll}>
+
       <div className={styles.productList}>
         <div className={styles.offer}>
           <h3>Offers</h3>
@@ -110,6 +112,7 @@ const Product = () => {
         <p>Hot drinks</p>
         <p>Sauces</p>
         <p>Orbit®</p>
+        </div>
       </div>
 
       <div className={styles.main}>

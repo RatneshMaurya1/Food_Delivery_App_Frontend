@@ -825,6 +825,11 @@
 .productList{
   width: 1000px;
 }
+.productScroll{
+  overflow: scroll;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
 .productList > p{
   flex-shrink: 0;
 }
