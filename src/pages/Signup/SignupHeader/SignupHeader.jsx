@@ -67,12 +67,11 @@ const SignupHeader = () => {
     try {
       const getImageUrl = async () => {
         const response = await getImage();
-        console.log(response);
         setImage(response.data);
       };
       getImageUrl();
     } catch (error) {
-      console.error(error);
+      toast.error(error);
     }
   }, []);
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./navbar.module.css";
+import styles from "./paymentnav.module.css";
 import navbarImage from "../../assets/LOGO.png";
 import userImage from "../../assets/User.png";
 import { useNavigate } from "react-router-dom";
@@ -7,10 +7,10 @@ import { useAuth } from "../Context/AuthContext";
 import basketImg from "../../assets/Basket.png";
 import avatarImg from "../../assets/avatar.png";
 import locationImage from "../../assets/Location.png";
-import toast from "react-hot-toast";
+import toast  from "react-hot-toast";
 
 
-const NavBar = ({ setIsCartOpen }) => {
+const PaymentNav = ({ setIsCartOpen }) => {
   const navigate = useNavigate();
   const { isLoggedIn, userName, handleCart } = useAuth();
   const id = localStorage.getItem("userId");
@@ -33,10 +33,10 @@ const NavBar = ({ setIsCartOpen }) => {
     });
   };
   const handleOpenCart = () => {
-    if(!localStorage.getItem("token")){
-      toast.error("Please log in to continue.")
-      return;
-    }
+    if (!localStorage.getItem("token")) {
+        toast.error("Please log in to continue.");
+        return;
+      }
     handleCart();
     navigate("/product");
     setIsCartOpen(true);
@@ -51,12 +51,14 @@ const NavBar = ({ setIsCartOpen }) => {
           <img src={navbarImage} alt="navbar-image" />
         </div>
         <div className={styles.page}>
-          <div className={styles.HomePage}>
-            <h1>Home</h1>
-          </div>
+          <p>Home</p>
+
+       
           <p>Browse Menu</p>
           <p>Special Offers</p>
-          <p>Restaurants</p>
+          <div className={styles.HomePage}>
+            <h1>Restaurants</h1>
+          </div>
           <p>Track Order</p>
           <div className={styles.loginRegister}>
             <div className={styles.userImg}>
@@ -111,4 +113,4 @@ const NavBar = ({ setIsCartOpen }) => {
   );
 };
 
-export default NavBar;
+export default PaymentNav;

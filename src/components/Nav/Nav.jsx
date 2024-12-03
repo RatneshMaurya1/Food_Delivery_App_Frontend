@@ -4,10 +4,11 @@ import locationImage from "../../assets/Location.png";
 import styles from "./nav.module.css";
 import { useAuth } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import basketImg from "../../assets/Basket.png"
-import forwordBtn from "../../assets/ForwardButton.png"
-import menuImg from "../../assets/Menu.png"
-import logoImg from "../../assets/LOGO.png"
+import basketImg from "../../assets/Basket.png";
+import forwordBtn from "../../assets/ForwardButton.png";
+import menuImg from "../../assets/Menu.png";
+import logoImg from "../../assets/LOGO.png";
+import toast from "react-hot-toast";
 
 const Nav = () => {
   const { handleCart } = useAuth();
@@ -22,6 +23,10 @@ const Nav = () => {
   };
 
   const handleOpenCart = () => {
+    if (!localStorage.getItem("token")) {
+      toast.error("Please log in to continue.");
+      return;
+    }
     handleCart();
     navigate("/product");
     handleScrollToTop();
@@ -41,28 +46,46 @@ const Nav = () => {
 
         <div className={styles.locationCart}>
           <div className={styles.location}>
+          {localAddress && (
+            <>
             <div className={styles.locationImg}>
               <img src={locationImage} alt="locationImage" />
             </div>
-            {localAddress && <h1>{localAddress.fullAddress},{localAddress.city},{localAddress.pinCode},{localAddress.state}</h1>}
-            <h3 onClick={() => navigate("/address")}>Change Location</h3>
+            
+              <h1>
+                {localAddress.fullAddress},{localAddress.city},
+                {localAddress.pinCode},{localAddress.state}
+              </h1>
+              </>
+            )}
+            <h3
+              onClick={() => {
+                if (!localStorage.getItem("token")) {
+                  toast.error("Please log in to continue.");
+                  return;
+                };
+                navigate("/address");
+              }}
+            >
+              Change Location
+            </h3>
           </div>
 
           <div className={styles.cart} onClick={handleOpenCart}>
             <div className={styles.cartImage}>
-            <img src={basketImg} alt="basket-image" />
-            <p>My Cart</p>
-            <div className={styles.line}></div>
+              <img src={basketImg} alt="basket-image" />
+              <p>My Cart</p>
+              <div className={styles.line}></div>
             </div>
             <div className={styles.forward}>
-            <div className={styles.line}></div>
+              <div className={styles.line}></div>
               <img src={forwordBtn} alt="forward-image" />
             </div>
           </div>
         </div>
         <div className={styles.menu}>
           <div className={styles.logo}>
-          <img src={logoImg} alt="logo-image" />
+            <img src={logoImg} alt="logo-image" />
           </div>
           <div className={styles.menuImage}>
             <div className={styles.line1}></div>

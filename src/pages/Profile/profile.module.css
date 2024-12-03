@@ -53,6 +53,7 @@
   color: #ffffff;
   border: none;
   border-radius: 6px;
+  cursor: pointer;
 }
 .profileDetails {
   display: grid;
@@ -74,6 +75,9 @@
   border: none;
   border-radius: 6px;
   padding-left: 20px;
+}
+.profileFullName > input:focus{
+  outline: 0.5px solid #AFAFAF
 }
 .profileFullName > p {
   font-size: 12px;
@@ -111,6 +115,9 @@
   border-radius: 6px;
   padding-left: 20px;
 }
+.profileGender > input:focus{
+  outline: 0.5px solid #AFAFAF
+}
 .profileGender > p {
   font-size: 12px;
   font-weight: 400;
@@ -129,6 +136,9 @@
   border-radius: 6px;
   padding-left: 20px;
 }
+.profileCountry > input:focus{
+  outline: 0.5px solid #AFAFAF
+}
 .profileCountry > p {
   font-size: 12px;
   font-weight: 400;
@@ -141,6 +151,7 @@
 .cardDetailsWrapper {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 30px;
 }
 .debitCards {
@@ -218,3 +229,85 @@
 .footer{
   margin-top: 160px;
 }
+.checkoutArrow{
+  display: none;
+}
+@media (max-width:992px) {
+  .profileDetails {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr ;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .profileImage{
+    display: none;
+  }
+  .checkoutArrow {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 60%;
+  }
+  .arrowLeft {
+    height: 25px;
+    width: 25px;
+    background: #fc8a06;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .arrowLeft > img{
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+  }
+  .checkoutArrow > p {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 31.2px;
+    text-align: left;
+  }
+  .checkoutName{
+    display: none;
+  }
+  .allNav{
+    display: none;
+  }
+  .container{
+    padding: 0 20px;
+  }
+  .profileContainer{
+    padding: 0 10px;
+  }
+  .cardDetailsWrapper{
+    flex-wrap: wrap;
+  }
+  .cardDetails{
+    width: 100%;
+  }
+
+  .cardnumber{
+    width: 80%;
+  }
+  .addCards{
+    width: 100%;
+    justify-content: start;
+    padding-left: 10px;
+  }
+  .container{
+    padding-bottom: 50px;
+  }
+  .footer{
+    display: none;
+  }
+  }
+  @media (max-width:500px){
+    .cardnumber{
+      width: 70%;
+    }
+    .debitCards > h3{
+      font-size: 16px;
+    }
+  }

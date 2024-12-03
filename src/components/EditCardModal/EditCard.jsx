@@ -62,7 +62,6 @@ const EditCard = ({ isEditCard, onCloseCard, setIsEditCard, cardId }) => {
       }
     } catch (error) {
       toast.error(error.message);
-      console.log(error.message)
     }finally{
       setLoading(false);
       setIsEditCard(false)

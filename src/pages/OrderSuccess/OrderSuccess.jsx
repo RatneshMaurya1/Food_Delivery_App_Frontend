@@ -4,9 +4,11 @@ import Nav from "../../components/Nav/Nav"
 import AllNavBar from "../../components/AllNavbar/AllNavbar"
 import successImg from "../../assets/success.png"
 import Footer from "../../components/Footer/Footer"
+import { useNavigate } from 'react-router-dom'
 
 const OrderSuccess = () => {
   const title = JSON.parse(localStorage.getItem("title"))
+  const navigate = useNavigate()
   return (
     <>
     <div className={styles.container}>
@@ -29,7 +31,7 @@ const OrderSuccess = () => {
         {title && title.map((item,i) => (
           <p key={i}>{item}</p>
         ))}
-        <button>Back to Home</button>
+        <button onClick={() => navigate("/home")}>Back to Home</button>
       </div>
       </div>
     </div>

@@ -15,9 +15,12 @@ import orderFood3 from "../../assets/order-food3.png";
 import PopularRestaurent from "../../components/PopularRestaurent/PopularRestaurent";
 import Footer from "../../components/Footer/Footer";
 import nextPageBtn from "../../assets/NextpageBtn.png"
+import toast from "react-hot-toast";
 
 const Home = () => {
   const [imageUrl, setImageUrl] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
 
   useEffect(() => {
     try {
@@ -27,14 +30,14 @@ const Home = () => {
       };
       getImageUrl();
     } catch (error) {
-      console.error(error);
+      toast.error(error);
     }
   }, []);
   return (
     <>
       <div className={styles.container}>
         <Nav />
-        <NavBar />
+        <NavBar setIsCartOpen={setIsCartOpen}/>
         <div className={styles.headerImages}>
           <div className={styles.text}>
             <p>Order Restaurant food, takeaway and groceries.</p>

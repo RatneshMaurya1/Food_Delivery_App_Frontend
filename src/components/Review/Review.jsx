@@ -6,6 +6,7 @@ import profileImg from "../../assets/profile.png";
 import TimeImg from "../../assets/TimeSpan.png";
 import ratingImg from "../../assets/rating.png";
 import { getImage, getUserReview } from "../../services";
+import toast from "react-hot-toast";
 
 const Review = () => {
   const [userReview, setUserReview] = useState([]);
@@ -18,7 +19,7 @@ const Review = () => {
         const response = await getUserReview();
         setUserReview(response.data);
       } catch (error) {
-        console.log(error.message);
+        toast.log(error.message);
       }
     };
     getReviews();
@@ -31,7 +32,7 @@ const Review = () => {
       };
       getImageUrl();
     } catch (error) {
-      console.error(error);
+      toast.error(error);
     }
   }, []);
 

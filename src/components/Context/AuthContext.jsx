@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [allCardName,setAllCardName] = useState([])
   
-console.log(allCardName)
   const handleCart = () => {
     setShowCart((prev) => !prev);
   };

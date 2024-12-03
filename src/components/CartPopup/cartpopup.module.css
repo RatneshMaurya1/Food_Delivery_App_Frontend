@@ -473,8 +473,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-    animation: fadeIn 0.3s ease-in-out;
     padding: 20px; 
   }
   
@@ -485,4 +483,77 @@
     scrollbar-width: none;
   }
 
-  
+  @media (max-width:500px) {
+    .cartPopup{
+      width: 90%;
+    }
+  }
+  @media (max-width:450px) {
+    .cartPopup{
+      width: 100%;
+    }
+  }
+  @media (max-width:415px) {
+    .shareCart{
+      width: 95%;
+    }
+    .myCartHeader{
+      width: 350px;
+    }
+    .cartItem{
+      width: 350px;
+    }
+    .totalAmount{
+      width: 95.5%;
+    }
+    .toPay{
+      width: 95.5%;
+    }
+    .checkout{
+      width: 95.5%;
+    }
+    .emptyCart{
+      width: 350px;
+    }
+  }
+  @media (max-width:380px){
+    .shareCart{
+      width: 90%;
+    }
+    .myCartHeader{
+      width: 330px;
+    }
+    .cartItem{
+      width: 330px;
+    }
+    .totalAmount{
+      width: 90%;
+    }
+    .toPay{
+      width: 90%;
+    }
+    .checkout{
+      width: 90%;
+    }
+    .totalToPay{
+      width: 330px;
+    }
+    .freeItem{
+      width: 330px;
+    }
+    .deliveryStart{
+      width: 138px;
+    }
+    .colloction{
+      width: 138px;
+    }
+    .checkoutBtn1{
+      width: 320px;
+    }
+    .cartPopup{
+      padding: 10px;
+    }
+    .emptyCart{
+      width: 330px;
+    }
+  }

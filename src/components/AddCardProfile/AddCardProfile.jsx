@@ -15,7 +15,6 @@ const AddCardInProfile = ({ isOpen, onClose,setPopupOpen }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
     const { cardNumber, expire, cvc, cardName } = formData;
     if (!cardNumber || !expire || !cvc || !cardName) {
@@ -101,7 +100,7 @@ const AddCardInProfile = ({ isOpen, onClose,setPopupOpen }) => {
             Name on Card
             <input
               type="text"
-              placeholder="Your Name"
+              placeholder="Your Card Name"
               value={formData.cardName}
               onChange={(e) =>
                 setFormData({ ...formData, cardName: e.target.value })
@@ -116,12 +115,10 @@ const AddCardInProfile = ({ isOpen, onClose,setPopupOpen }) => {
               >
                 Cancel
               </button>
-            <div className={styles.cancelSaveButton}>
             
               <button type="submit" disabled={loading} className={styles.saveButton}>
                 {loading ? "Loading" : "Save Changes"}
               </button>
-            </div>
           </div>
         </form>
       </div>

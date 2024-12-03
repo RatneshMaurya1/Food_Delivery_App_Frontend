@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import styles from "./popularRestaurent.module.css"
 import { getImage } from '../../services';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const PopularRestaurent = () => {
     const [imageUrl, setImageUrl] = useState([]);
@@ -15,7 +16,7 @@ const PopularRestaurent = () => {
         };
         getImageUrl();
       } catch (error) {
-        console.error(error);
+        toast.error(error);
       }
     }, []);
 

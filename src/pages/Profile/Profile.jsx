@@ -12,6 +12,8 @@ import EditCard from "../../components/EditCardModal/EditCard";
 import AddCardInProfile from "../../components/AddCardProfile/AddCardProfile";
 import { getUserProfile, updatedUserProfile, UserCard } from "../../services";
 import toast from "react-hot-toast";
+import arrowLeftImg from "../../assets/ArrowLeft.png"
+
 
 const Profile = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);
@@ -36,18 +38,24 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    if(!localStorage.getItem("token")){
+      return;
+    }
     const getDebitCard = async () => {
       try {
         const response = await UserCard();
         setUserDebitCard(response.userCard);
       } catch (error) {
-        console.error(error.message);
+        toast.error(error.message);
       }
     };
     getDebitCard();
   }, [isPopupOpen, isEditCard]);
 
   useEffect(() => {
+    if(!localStorage.getItem("token")){
+      return;
+    }
     const getProfile = async () => {
       try {
         const response = await getUserProfile();
@@ -60,9 +68,10 @@ const Profile = () => {
   }, [isEditMode]);
 
   const handleEditToggle = () => {
-    // if (isEditMode) {
-    //   console.log("Updated Profile Data:", profileData);
-    // }
+    if (!localStorage.getItem("token")) {
+      toast.error("Please log in to continue.");
+      return;
+    }
     setIsEditMode(!isEditMode);
   };
 
@@ -75,6 +84,10 @@ const Profile = () => {
   };
 
   const handleUpdateData = async () => {
+    if (!localStorage.getItem("token")) {
+      toast.error("Please log in to continue.");
+      return;
+    }
     if (isEditMode) {
       const { fullName, gender, country } = profileData;
       if (!gender && !fullName && !country) {
@@ -102,11 +115,16 @@ const Profile = () => {
   };
 
   const handleEditCard = (id) => {
+    
     setIsEditCard(true);
     setCardId(id);
   };
 
   const handleAddCard = () => {
+    if (!localStorage.getItem("token")) {
+      toast.error("Please log in to continue.");
+      return;
+    }
     setPopupOpen(true);
   };
 
@@ -129,6 +147,12 @@ const Profile = () => {
               <img src={profileImg} alt="Profile" />
               <p>{name}</p>
             </div>
+            <div className={styles.checkoutArrow}>
+            <div className={styles.arrowLeft}>
+              <img src={arrowLeftImg} alt="arrow-image" onClick={() => navigate(-1)}/>
+            </div>
+            <p>Your Profile</p>
+          </div>
             <div className={styles.saveEditButton}>
               <button disabled={loading}>
                 {isEditMode ? (

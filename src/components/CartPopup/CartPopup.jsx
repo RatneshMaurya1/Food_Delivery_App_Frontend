@@ -12,6 +12,7 @@ import ErrorImg from "../../assets/Error.png";
 import { DeleteCartItemById, getCartItem, getShareLink } from "../../services";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Context/AuthContext";
 
 const CartPopup = ({ cartUpdated, isOpen, onClose }) => {
   const [cartItem, setCartItem] = useState([]);
@@ -19,6 +20,7 @@ const CartPopup = ({ cartUpdated, isOpen, onClose }) => {
   const [cartId, setCartId] = useState("");
   const [shareCartLoading, setShareCartLoading] = useState(false);
   const [loading, setLoading] = useState({});
+  const {showCart, handleCart} = useAuth()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -81,8 +83,8 @@ const CartPopup = ({ cartUpdated, isOpen, onClose }) => {
 
   return (
     <>
-      {isOpen && (
-        <div className={styles.overlay}  onClick={onClose}>
+      {showCart && (
+        <div className={styles.overlay}  onClick={() => handleCart()} >
           <div className={styles.cartPopup}>
     
            

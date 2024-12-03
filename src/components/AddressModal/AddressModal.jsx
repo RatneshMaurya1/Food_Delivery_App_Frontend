@@ -16,6 +16,10 @@ const AddressPopup = ({ isOpen, onClose, setIsPopupOpen }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!localStorage.getItem("token")) {
+      toast.error("Please log in to continue.");
+      return;
+    }
     const { state, city, pinCode, phoneNumber, fullAddress } = formData;
     if (!state || !city || !pinCode || !phoneNumber || !fullAddress) {
       return toast.error("Missing required field");
@@ -31,6 +35,13 @@ const AddressPopup = ({ isOpen, onClose, setIsPopupOpen }) => {
       const response = await userAddress(formData);
       if (response.message === "Address added successfully") {
         toast.success("Address added successfully");
+        setFormData({
+          state: "",
+          city: "",
+          pinCode: "",
+          phoneNumber: "",
+          fullAddress: "",
+        })
       } else {
         toast.error(response.message);
       }

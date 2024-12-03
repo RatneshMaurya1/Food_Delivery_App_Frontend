@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 import basketImg from "../../assets/Basket.png"
 import avatarImg from "../../assets/avatar.png"
+import toast from "react-hot-toast";
 
 
 const NavBar = () => {
@@ -30,6 +31,10 @@ const NavBar = () => {
     });
   };
   const handleOpenCart = () => {
+    if (!localStorage.getItem("token")) {
+      toast.error("Please log in to continue.");
+      return;
+    }
     handleCart();
     navigate("/product");
     handleScrollToTop();

@@ -18,6 +18,7 @@ import SimilarRestaurent from "../../components/SimilarRestaurent/SimilarRestaur
 import Footer from "../../components/Footer/Footer";
 import { useAuth } from "../../components/Context/AuthContext";
 import CartPopup from "../../components/CartPopup/CartPopup";
+import PaymentNav from "../../components/PaymentNav/PaymentNav";
 
 const Product = () => {
   const [imageUrl, setImageUrl] = useState([]);
@@ -35,7 +36,7 @@ const Product = () => {
       };
       getImageUrl();
     } catch (error) {
-      console.error(error);
+      toast.error(error);
     }
   }, []);
 
@@ -47,7 +48,7 @@ const Product = () => {
     <>
       <div className={styles.container}>
         <Nav />
-        <NavBar setIsCartOpen={setIsCartOpen} />
+        <PaymentNav setIsCartOpen={setIsCartOpen}/>
         <div className={styles.productHeader}>
           <div className={styles.headerItem1}>
             <h3>I'm lovin' it!</h3>

@@ -65,7 +65,7 @@ const LoginHeader = () => {
        }
        getImageUrl()
      } catch (error) {
-       console.error(error)
+       toast.error(error)
      }
     },[])
   return (

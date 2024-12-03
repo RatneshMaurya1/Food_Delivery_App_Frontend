@@ -256,6 +256,7 @@
   font-weight: 400;
   line-height: 25.6px;
   text-align: center;
+  cursor: pointer;
 }
 
 .mastercard {
@@ -280,12 +281,14 @@
   background: none;
   border: none;
   font-size: 30px;
+  cursor: pointer;
 }
 .addBtnTitle > h3 {
   font-size: 14px;
   font-weight: 400;
   line-height: 22.4px;
   text-align: center;
+  cursor: pointer;
 }
 .addCards{
   height: 50px;
@@ -352,4 +355,101 @@
   margin-top: 100px;
   padding: 0 70px;
   padding-bottom: 70px;
+}
+.checkoutArrow{
+  display: none;
+}
+
+@media (max-width:992px) {
+  .allNav{
+    display: none;
+  }
+  .Details{
+    flex-direction: column;
+    align-items: center;
+  }
+  .checkoutArrow {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 60%;
+  }
+  .arrowLeft {
+    height: 25px;
+    width: 25px;
+    background: #fc8a06;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .arrowLeft > img{
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+  }
+  .checkoutArrow > p {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 31.2px;
+    text-align: left;
+  }
+  .checkoutName {
+    width: 50%;
+    justify-content: center;
+    margin-left: 17%;
+    display: none;
+  }
+  .allAddressDetails {
+    width: 65%;
+    margin-top: 50px;
+    border-top: 1px solid #AFAFAF;
+    margin-bottom: 30px;
+  }
+  .similar {
+    display: none;
+  }
+  .allAddressDetails > p {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .allAmount{
+    border: none;
+  }
+  .paymentContainer {
+    padding: 0 0px;
+    height: auto;
+    width: 100%;
+  }
+  .similarRestaurentWrapper{
+    display: none;
+  }
+  .footer{
+    display: none;
+  }
+
+}
+@media (max-width: 600px) {
+  .notesAndDetails {
+    width: 380px;
+  }
+  .allAddressDetails {
+    width: 380px;
+  }
+  .checkoutArrow{
+    width: 360px;
+  }
+}
+@media (max-width: 400px) {
+  .notesAndDetails {
+    width: 330px;
+  }
+  .allAddressDetails {
+    width: 330px;
+  }
+  .checkoutArrow{
+    width: 310px;
+  }
 }

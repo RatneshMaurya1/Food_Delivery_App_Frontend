@@ -33,13 +33,19 @@ const EditAddressModal = ({ isOpen, onClose, setIsEditPopup, id }) => {
     try {
       const response = await updatedUserAddress(formData, id);
       if (response.message === "Address updated successfully") {
-        toast.success("Address added successfully");
+        toast.success(response.message);
+        setFormData({
+          state: "",
+          city: "",
+          pinCode: "",
+          phoneNumber: "",
+          fullAddress: "",
+        })
       } else {
         toast.error(response.message);
       }
     } catch (error) {
       toast.error(error.message);
-      console.log(error.message);
     } finally {
       setLoading(false);
       setIsEditPopup(false);

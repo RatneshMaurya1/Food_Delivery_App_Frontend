@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import styles from "./similarRestaurent.module.css"
 import { getImage } from '../../services';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const SimilarRestaurent = () => {
     const [imageUrl, setImageUrl] = useState([]);
@@ -15,7 +16,7 @@ const SimilarRestaurent = () => {
         };
         getImageUrl();
       } catch (error) {
-        console.error(error);
+        toast.error(error);
       }
     }, []);
     const handleScrollToTop = () => {

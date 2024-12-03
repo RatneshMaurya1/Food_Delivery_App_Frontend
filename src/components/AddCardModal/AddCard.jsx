@@ -23,8 +23,10 @@ const AddCard = ({ isOpen, onClose, cardName,setPopupOpen }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-
+    if(!localStorage.getItem("token")){
+      toast.error("Please log in to continue.")
+      return;
+    }
     const { cardNumber, expire, cvc, cardName } = formData;
     if (!cardNumber || !expire || !cvc || !cardName) {
         return toast.error("Missing required field" )
@@ -70,7 +72,7 @@ const AddCard = ({ isOpen, onClose, cardName,setPopupOpen }) => {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.container} onClick={(e) => e.stopPropagation()}>
-        <h2>Edit Payment Method</h2>
+        <h2>Add Payment Method</h2>
         <form onSubmit={handleSubmit}>
           <label>
             Card Number
@@ -124,12 +126,10 @@ const AddCard = ({ isOpen, onClose, cardName,setPopupOpen }) => {
               >
                 Cancel
               </button>
-            <div className={styles.cancelSaveButton}>
             
               <button type="submit" disabled={loading} className={styles.saveButton}>
                 {loading ? "Loading" : "Save Changes"}
               </button>
-            </div>
           </div>
         </form>
       </div>

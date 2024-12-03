@@ -303,6 +303,7 @@
   .arrowLeft > img{
     height: 15px;
     width: 15px;
+    cursor: pointer;
   }
   .checkoutArrow > p {
     font-size: 24px;
@@ -323,6 +324,9 @@
     font-weight: 600;
     margin-bottom: 20px;
   }
+  .footer{
+    display: none;
+  }
 }
 @media (max-width: 600px) {
   .notesAndDetails {
@@ -333,5 +337,8 @@
   }
   .checkoutArrow{
     width: 330px;
+  }
+  .noItem{
+    font-size: 16px;
   }
 }

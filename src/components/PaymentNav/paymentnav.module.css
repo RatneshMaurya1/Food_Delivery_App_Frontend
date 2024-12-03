@@ -1,0 +1,234 @@
+.navbar {
+    height: 61px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 38px;
+  }
+  .navbarLogo {
+    height: 53px;
+    width: 215px;
+    flex-shrink: 0;
+  }
+  .navbarLogo > img {
+    height: 100%;
+    width: 100%;
+  }
+  .page {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  .page > p {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 27px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    flex-shrink: 0;
+  }
+  .HomePage {
+    width: 127px;
+    height: 45px;
+    background-color: #fc8a06;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 120px;
+    flex-shrink: 0;
+  }
+  .HomePage > h1 {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 27px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #ffffff;
+  }
+  
+  .loginRegister {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 55px;
+    width: 200px;
+    background-color: #000000;
+    border: 1px solid black;
+    border-radius: 120px;
+    flex-shrink: 0;
+  }
+  .userImg {
+    height: 25px;
+    width: 30px;
+  }
+  .userImg > img {
+    height: 100%;
+    width: 100%;
+  }
+  .loginRegister > h1 {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 27px;
+    text-align: left;
+    cursor: pointer;
+  }
+  .loginRegister > h1 > span{
+    cursor: pointer;
+  }
+  .cartProfile{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    display: none;
+  }
+  
+  .profileImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+    width: 50%;
+    background: #FC8A06;
+  }
+  .avatar > img{
+    height: 60px;
+    width: 60px;
+  }
+  .profileImage > h1{
+    font-size: 25px;
+    cursor: pointer;
+  }
+  .profileImage > h1 > span{
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .cart{
+    height: 100%;
+    width: 50%;
+    background: #028643;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+  }
+  .cart > p{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .address{
+    display: none;
+  }
+  .address > h1{
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .address > h3{
+    font-size: 13px;
+    font-weight: 500;
+    color: #FC8A06;
+    cursor: pointer;
+  }
+  
+  
+  @media (max-width: 1280px){
+    .page{
+      gap: 30px;
+    }
+    .loginRegister{
+      width: 170px;
+    }
+    .loginRegister > h1 {
+      font-size: 13px;
+    }
+  }
+  @media (max-width: 1200px){
+    .page{
+      gap: 20px;
+    }
+    .HomePage{
+      width: 100px;
+    }
+    .navbarLogo{
+      width: 180px;
+    }
+    /* .loginRegister{
+      width: 150px;
+    } */
+  }
+  @media (max-width: 1100px){
+    .page > p{
+      font-size: 13px;
+    }
+    .loginRegister{
+      width: 150px;
+      gap: 5px;
+    }
+  }
+  @media (max-width: 1024px){
+    .page > p{
+      font-size: 11px;
+    }
+    .HomePage{
+      width: 80px;
+    }
+    .HomePage > h1{
+        font-size: 12px;
+    }
+  }
+  @media (max-width: 992px){
+    .navbar{
+      height: 100px;
+      margin-top: 0px;
+    }
+    .page{
+      display: none;
+    }
+    .navbarLogo{
+      display: none;
+    }
+    .cartProfile{
+      display: flex;
+    }
+    .address{
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      gap: 10px;
+      margin-top: 10px;
+      margin-right: 20px;
+    }
+    .address > h3{
+      display: none;
+    }
+    
+  }
+  @media (max-width: 550px){
+    .avatar > img{
+      height: 40px;
+      width: 40px;
+    }
+    .profileImage > h1{
+      font-size: 20px;
+    }
+    .profileImage > h1 > span{
+      font-size: 20px;
+    }
+  }
+  @media (max-width: 450px){
+    .profileImage{
+      gap: 10px;
+    }
+    .profileImage > h1{
+      font-size: 17px;
+    }
+    .profileImage > h1 > span{
+      font-size: 17px;
+    }
+  }
